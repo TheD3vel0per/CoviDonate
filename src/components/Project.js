@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
+import './styles/Project.css';
 
 function Project() {
 
@@ -24,16 +25,17 @@ function Project() {
 
     return (
         <>
-
+           
             <div className="text-center p-5" id="wrapper">
             <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" style={{maxHeight: '500px', objectFit: 'cover'}}/>
 
                 <Card.Body>
 
-                    <Card.Title style={{textShadow: '0px 2px 3px #454545',  
-                                        textShadow: '1px 3px 5px #ababab',
-                                        fontSize: '3em'}}>{project.title} </Card.Title>
+                    <Card.Title id="title" style={{textShadow: '0px 1px 3px #454545',  
+                                        textShadow: '0px 3px 5px #ababab',
+                                        textShadow: '0px 5px 10px #e0e0e0',
+                                        fontSize: '3em'} } >{project.title} </Card.Title>
 
                 <Card.Text>
                     {project.shortDescription}

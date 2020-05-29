@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 import pymongo
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
     'mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
 db = client['development']
@@ -29,7 +29,7 @@ def root():
 
 @app.route('/<path:path>')
 def other(path):
-    return send_from_directory('../build', path)
+    return send_from_directory('./build', path)
 
 if (__name__ == "__main__"):
     app.run()
@@ -91,7 +91,7 @@ with app.test_client() as c:
 # @app.route('/api/v1/resources/books/all', methods=['GET'])
 # def api_all():
 #     return jsonify(books)
-   'year_published': '1992'},
+#    'year_published': '1992'},
 #     {'id': 1,
 #      'title': 'The Ones Who Walk Away From Omelas',
 #      'author': 'Ursula K. Le Guin',
@@ -115,7 +115,475 @@ with app.test_client() as c:
 # @app.route('/api/v1/resources/books/all', methods=['GET'])
 # def api_all():
 #     return jsonify(books)
-   'year_published': '1992'},
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#    'year_published': '1992'},
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
+#     {'id': 1,
+#      'title': 'The Ones Who Walk Away From Omelas',
+#      'author': 'Ursula K. Le Guin',
+#      'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
+#      'published': '1973'},
+#     {'id': 2,
+#      'title': 'Dhalgren',
+#      'author': 'Samuel R. Delany',
+#      'first_sentence': 'to wound the autumnal city.',
+#      'published': '1975'}
+# ]
+
+
+# @app.route('/', methods=['GET'])
+# def home():
+#     return '''<h1>Distant Reading Archive</h1>
+# <p>A prototype API for distant reading of science fiction novels.</p>'''
+
+
+# # A route to return all of the available entries in our catalog.
+# @app.route('/api/v1/resources/books/all', methods=['GET'])
+# def api_all():
+#     return jsonify(books)
 #     {'id': 1,
 #      'title': 'The Ones Who Walk Away From Omelas',
 #      'author': 'Ursula K. Le Guin',

@@ -2,8 +2,11 @@ import React from 'react';
 import {
     Button,
     Card,
-    CardDeck
+    CardDeck,
+    CardGroup
 } from 'react-bootstrap';
+import './styles/Home.css';
+
 
 function Home() {
 
@@ -94,6 +97,8 @@ function Home() {
         }
     ]
 
+    
+
     const variant = [
         'Primary',
         'Secondary',
@@ -106,11 +111,13 @@ function Home() {
     ]
     var k = -1;
 
+    let rows = [];
 
     return (
+        
 
         <div>
-            <CardDeck>
+            <CardGroup>
 
                 {sampleData.map(obj => {
 
@@ -120,11 +127,11 @@ function Home() {
                         k = 0;
                     }
 
+
                     return (
 
-                        <Card style={{ width: '18rem' }}
-                            bg={variant[k].toLowerCase()}
-                            text7={variant[k].toLowerCase() === 'light' ? 'dark' : 'white'}>
+                        <div class="card-columns">
+                        <Card border="secondary" style={{ width: '18rem' }}
                             <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" />
                             <Card.Body>
                                 <Card.Title>{obj.title}</Card.Title>
@@ -134,20 +141,15 @@ function Home() {
                                 <Button variant={variant[k].toLowerCase()=== 'dark' ? 'light' : 'dark'}>Go somewhere</Button>
                             </Card.Body>
                         </Card>
-
+                        </div>
+                        
                     );
 
-
                 })}
-            </CardDeck>
+               
 
-            {for (let index = 0; index < array.length; index++) {
-                const element = array[index];
-                
-            }}
-            <CardDeck>
-
-            </CardDeck>
+            </CardGroup>
+            
         </div>
     );
 }
