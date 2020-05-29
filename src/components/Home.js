@@ -1,5 +1,5 @@
 import React from 'react';
-import { 
+import {
     Button,
     Card
 } from 'react-bootstrap';
@@ -53,13 +53,16 @@ function Home() {
 
     return (
         <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>{sampleData[0].title}</Card.Title>
-    <Card.Text>
-    {sampleData[0].shortDescription}
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-        
+            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Body>
+                <Card.Title>{sampleData[0].title}</Card.Title>
+                <Card.Text>
+                    {sampleData[0].shortDescription}
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+        </Card>);
+
+}
+
+export default Home;

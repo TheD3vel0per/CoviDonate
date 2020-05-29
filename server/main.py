@@ -2,21 +2,21 @@ from flask import Flask, request, jsonify, send_from_directory
 import pymongo
 
 app = Flask(__name__, static_url_path='')
-client = pymongo.MongoClient(open('./DBCONNECT.txt').read())
+client = pymongo.MongoClient('mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
 db = client['development']
-
-
-# @app.route('/<path:path>')
-# def root(path):
-#     return send_from_directory('./build', path)
-
-# if (__name__ == "__main__"):
-#     app.run()
-#     print("Application has loaded!")
 
 @app.route('/projects')
 def get_projects():
-    return jsonify()
+    return jsonify(db['projects'].find().)
+
+@app.route('/<path:path>')
+def root(path):
+    return send_from_directory('./build', path)
+
+if (__name__ == "__main__"):
+    app.run()
+    print("Application has loaded!")
+
 
 
 """
@@ -39,7 +39,7 @@ with app.test_client() as c:
 
 """
 ---> Code template for collection query
-
+"""
 
 # app = flask.Flask(__name__)
 # app.config["DEBUG"] = True
@@ -74,6 +74,3 @@ with app.test_client() as c:
 # @app.route('/api/v1/resources/books/all', methods=['GET'])
 # def api_all():
 #     return jsonify(books)
-
-app.run()
-    
