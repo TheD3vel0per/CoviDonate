@@ -8,6 +8,8 @@ import {
 import './styles/Home.css';
 
 
+
+
 function Home() {
 
     const sampleData = [
@@ -121,24 +123,17 @@ function Home() {
 
                 {sampleData.map(obj => {
 
-                    k = k + 1;
-
-                    if (k == variant.length) {
-                        k = 0;
-                    }
-
-
                     return (
 
                         <div class="card-columns">
-                        <Card border="secondary" style={{ width: '18rem' }}
-                            <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" />
+                        <Card style={{ width: '18rem' }}>
+                            <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
                             <Card.Body>
                                 <Card.Title>{obj.title}</Card.Title>
                                 <Card.Text>
                                     {obj.shortDescription}
                                 </Card.Text>
-                                <Button variant={variant[k].toLowerCase()=== 'dark' ? 'light' : 'dark'}>Go somewhere</Button>
+                                <Button variant="primary">Go somewhere</Button>
                             </Card.Body>
                         </Card>
                         </div>
