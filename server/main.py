@@ -2,32 +2,35 @@ from flask import Flask, request, jsonify, send_from_directory
 import pymongo
 
 app = Flask(__name__, static_url_path='')
-client = pymongo.MongoClient('mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
+client = pymongo.MongoClient(
+    'mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
 db = client['development']
+
 
 @app.route('/projects')
 def get_projects():
     projects = db.projects.find({})
-    resulting_data = []
+    resulting_array = []
     for project in projects:
-        identifier = { '_id': project.get('_id') }
-        resulting_data.append({
-            **project,
-            **identifier
-        })
-        print(project.get('_id'))
+        resulting_object = {}
+        for key in project.keys():
+            if (key == '_id'):
+                resulting_object[key] = str(project.get(key))
+            else:
+                resulting_object[key] = project.get(key)
+        resulting_array.append(resulting_object)
         pass
-    print(resulting_data)
-    return 'stuff'
+    return jsonify(resulting_array)
+
 
 @app.route('/<path:path>')
 def root(path):
     return send_from_directory('./build', path)
 
+
 if (__name__ == "__main__"):
     app.run()
     print("Application has loaded!")
-
 
 
 """

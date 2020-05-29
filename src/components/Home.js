@@ -55,7 +55,7 @@ function Home() {
         <div>
             {sampleData.map(obj => (
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src="/images/green.jpg"/>
                 <Card.Body>
                     <Card.Title>{obj.title}</Card.Title>
                         <Card.Text>
