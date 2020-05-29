@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 import pymongo
 
 app = Flask(__name__, static_url_path='')
@@ -22,11 +22,13 @@ def get_projects():
         pass
     return jsonify(resulting_array)
 
+@app.route('/')
+def root():
+    return render_template(__file__.replace('server/main.py', 'build/'))
 
 @app.route('/<path:path>')
-def root(path):
-    return send_from_directory('./build', path)
-
+def wildcard(path):
+    return send_from_directory(__file__.replace('server/main.py', 'build/'), path)
 
 if (__name__ == "__main__"):
     app.run()

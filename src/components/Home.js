@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Button,
-    Card
+    Card,
+    CardGroup
 } from 'react-bootstrap';
 
 function Home() {
@@ -51,11 +52,29 @@ function Home() {
         }
     ]
 
+   const variant =[
+    'Primary',
+    'Secondary',
+    'Success',
+    'Danger',
+    'Warning',
+    'Info',
+    'Light',
+    'Dark',
+  ]
+
     return (
+       
         <div>
+            <CardGroup>
+           
             {sampleData.map(obj => (
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="/images/green.jpg"/>
+                 
+            <Card style={{ width: '18rem' }}
+                bg={variant.toLowerCase()}
+                key={idx}
+                text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}>
+                <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load"/>
                 <Card.Body>
                     <Card.Title>{obj.title}</Card.Title>
                         <Card.Text>
@@ -64,7 +83,8 @@ function Home() {
                         <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-        ))}
+        ))))}
+        </CardGroup>
         </div>
     );
 }

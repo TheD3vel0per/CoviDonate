@@ -25,7 +25,7 @@ function Project() {
 
             <div className="text-center p-5" id="wrapper">
             <Card style={{ width: '100%' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" style={{maxHeight: '500px', objectFit: 'cover'}}/>
 
                 <Card.Body>
                 
