@@ -7,13 +7,18 @@ db = client['development']
 
 @app.route('/projects')
 def get_projects():
-    projects = db.projects
-    cursor = 
+    projects = db.projects.find({})
     resulting_data = []
     for project in projects:
-        resulting_data.append(project)
+        identifier = { '_id': project.get('_id') }
+        resulting_data.append({
+            **project,
+            **identifier
+        })
+        print(project.get('_id'))
         pass
-    return jsonify()
+    print(resulting_data)
+    return 'stuff'
 
 @app.route('/<path:path>')
 def root(path):
