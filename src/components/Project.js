@@ -20,6 +20,8 @@ function Project() {
         "tags": ["keywords"]
     };
 
+    //const genProgress = () => {100*(project.finance[donatedSoFar]/project.finance[donationGoals])};
+
     return (
         <>
 
@@ -28,8 +30,8 @@ function Project() {
                 <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" style={{maxHeight: '500px', objectFit: 'cover'}}/>
 
                 <Card.Body>
-                
-                    <Card.Title >{project.title}</Card.Title>
+
+                    <Card.Title style={{ fontSize: '2em' }}>{project.title}</Card.Title>
 
                 <Card.Text>
                     {project.shortDescription}

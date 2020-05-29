@@ -52,39 +52,38 @@ function Home() {
         }
     ]
 
-   const variant =[
-    'Primary',
-    'Secondary',
-    'Success',
-    'Danger',
-    'Warning',
-    'Info',
-    'Light',
-    'Dark',
-  ]
+    const variant = [
+        'Primary',
+        'Secondary',
+        'Success',
+        'Danger',
+        'Warning',
+        'Info',
+        'Light',
+        'Dark',
+    ]
+    var k = 0;
+    
 
     return (
-       
+
         <div>
             <CardGroup>
-           
-            {sampleData.map(obj => (
-                 
-            <Card style={{ width: '18rem' }}
-                bg={variant.toLowerCase()}
-                key={idx}
-                text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}>
-                <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load"/>
-                <Card.Body>
-                    <Card.Title>{obj.title}</Card.Title>
-                        <Card.Text>
-                            {obj.shortDescription}
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
-        ))))}
-        </CardGroup>
+
+                {sampleData.map(obj => (
+                    <Card style={{ width: '18rem' }}
+                        bg={variant[genRand()].toLowerCase()}
+                        text7={variant[genRand()].toLowerCase() === 'light' ? 'dark' : 'white'}>
+                        <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" />
+                        <Card.Body>
+                            <Card.Title>{obj.title}</Card.Title>
+                            <Card.Text>
+                                {obj.shortDescription}
+                            </Card.Text>
+                            <Button variant="primary">Go somewhere</Button>
+                        </Card.Body>
+                    </Card>))}
+            </CardGroup>
         </div>
     );
 }
