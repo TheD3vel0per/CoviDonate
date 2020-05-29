@@ -1,0 +1,14 @@
+{
+    "id": "",
+    "title": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "image": "",
+    "companyName": "",
+    "companyUrl": "",
+    "finance": {
+        "donatedSoFar": "",
+        "donationGoals": ""
+    },
+    "tags": ["keywords"]
+}

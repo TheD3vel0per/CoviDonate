@@ -1,15 +1,22 @@
 from flask import Flask, request, jsonify, send_from_directory
+import pymongo
 
-app = Flask(__name__, static_url_path='/build')
+app = Flask(__name__, static_url_path='')
+client = pymongo.MongoClient(open('./DBCONNECT.txt').read())
+db = client.default
 
-@app.route('/<path:path>')
-def root(path):
-    return send_from_directory('./build', path)
 
-if (__name__ == "__main__"):
-    app.run()
-    print("Application has loaded!")
+# @app.route('/<path:path>')
+# def root(path):
+#     return send_from_directory('./build', path)
 
+# if (__name__ == "__main__"):
+#     app.run()
+#     print("Application has loaded!")
+
+@app.route('/projects')
+def get_projects():
+    return "here are projects"
 
 
 """
