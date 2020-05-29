@@ -52,17 +52,21 @@ function Home() {
     ]
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-                <Card.Title>{sampleData[0].title}</Card.Title>
-                <Card.Text>
-                    {sampleData[0].shortDescription}
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-        </Card>);
-
+        <div>
+            {sampleData.map(obj => (
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                    <Card.Title>{obj.title}</Card.Title>
+                        <Card.Text>
+                            {obj.shortDescription}
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+            </Card>
+        ))}
+        </div>
+    );
 }
 
 export default Home;
