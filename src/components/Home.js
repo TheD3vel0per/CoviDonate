@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button,
     Card,
-    CardGroup
+    CardDeck
 } from 'react-bootstrap';
 
 function Home() {
@@ -49,6 +49,48 @@ function Home() {
                 "donationGoals": ""
             },
             "tags": ["keywords"]
+        },
+        {
+            "id": "4",
+            "title": "D",
+            "shortDescription": "D_Short_Description",
+            "longDescription": "D_long_Description",
+            "image": "",
+            "companyName": "D_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "5",
+            "title": "E",
+            "shortDescription": "E_Short_Description",
+            "longDescription": "E_long_Description",
+            "image": "",
+            "companyName": "E_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "6",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
         }
     ]
 
@@ -62,28 +104,50 @@ function Home() {
         'Light',
         'Dark',
     ]
-    var k = 0;
-    
+    var k = -1;
+
 
     return (
 
         <div>
-            <CardGroup>
+            <CardDeck>
 
-                {sampleData.map(obj => (
-                    <Card style={{ width: '18rem' }}
-                        bg={variant[genRand()].toLowerCase()}
-                        text7={variant[genRand()].toLowerCase() === 'light' ? 'dark' : 'white'}>
-                        <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" />
-                        <Card.Body>
-                            <Card.Title>{obj.title}</Card.Title>
-                            <Card.Text>
-                                {obj.shortDescription}
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>))}
-            </CardGroup>
+                {sampleData.map(obj => {
+
+                    k = k + 1;
+
+                    if (k == variant.length) {
+                        k = 0;
+                    }
+
+                    return (
+
+                        <Card style={{ width: '18rem' }}
+                            bg={variant[k].toLowerCase()}
+                            text7={variant[k].toLowerCase() === 'light' ? 'dark' : 'white'}>
+                            <Card.Img variant="top" src="/images/green.jpg" alt="Generic placeholder in case pic fails to load" />
+                            <Card.Body>
+                                <Card.Title>{obj.title}</Card.Title>
+                                <Card.Text>
+                                    {obj.shortDescription}
+                                </Card.Text>
+                                <Button variant={variant[k].toLowerCase()=== 'dark' ? 'light' : 'dark'}>Go somewhere</Button>
+                            </Card.Body>
+                        </Card>
+
+                    );
+
+
+                })}
+            </CardDeck>
+
+            {for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                
+            }}
+            <CardDeck>
+
+            </CardDeck>
         </div>
     );
 }
