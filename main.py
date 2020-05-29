@@ -36,7 +36,9 @@ with app.test_client() as c:
 # # Create some test data for our catalog in the form of a list of dictionaries.
 # books = [
 #     {'id': 0,
-#      'title': 'A Fire Upon the Deep',
+#      '
+"""
+---> Code teme': 'A Fire Upon the Deep',
 #      'author': 'Vernor Vinge',
 #      'first_sentence': 'The coldsleep itself was dreamless.',
 #      'year_published': '1992'},

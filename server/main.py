@@ -3,7 +3,7 @@ import pymongo
 
 app = Flask(__name__, static_url_path='')
 client = pymongo.MongoClient(open('./DBCONNECT.txt').read())
-db = client.default
+db = client['development']
 
 
 # @app.route('/<path:path>')
@@ -16,7 +16,7 @@ db = client.default
 
 @app.route('/projects')
 def get_projects():
-    return "here are projects"
+    return jsonify()
 
 
 """
@@ -36,6 +36,10 @@ with app.test_client() as c:
     json_data = rv.get_json()
     assert verify_token(email, json_data['token'])
     """
+
+"""
+---> Code template for collection query
+
 
 # app = flask.Flask(__name__)
 # app.config["DEBUG"] = True

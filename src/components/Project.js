@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Image from 'react-bootstrap/Image'
 
 function Project() {
 
@@ -8,7 +9,7 @@ function Project() {
         "id": "100",
         "title": "COVID Masks",
         "shortDescription": "Project to fund 3D printing of masks",
-        "longDescription": " Every since the dawn of time, man has worn masks to keep safe from rude people who cough everywhere and protest lockdown. In our project.... GIVE US MONEY!!!!!",
+        "longDescription": " Every since the dawn of time, man has worn masks to keep safe from rude people who cough everywhere and protest lockdown. In our project.... GIVE US MONEY!!!!!  Congue eu consequat ac felis donec et odio. Ac auctor augue mauris augue neque gravida in. Consequat semper viverra nam libero justo laoreet. Proin fermentum leo vel orci. Mattis rhoncus urna neque viverra justo nec ultrices. Nibh tellus molestie nunc non blandit massa enim. Libero nunc consequat interdum varius sit amet. Quam adipiscing vitae proin sagittis nisl rhoncus. Euismod lacinia at quis risus sed vulputate. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Sed id semper risus in. Eget dolor morbi non arcu risus quis varius. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing.",
         "image": "",
         "companyName": "Masks R Us",
         "companyUrl": "",
@@ -44,12 +45,11 @@ function Project() {
                     <Card.Text>
                         {project.longDescription}
                     </Card.Text>
+                    <Button className="m-1" as="input" type="submit" variant="outline-success" value="Donate" />{' '}
+                    <p ></p>
                     <Button className="m-3" variant="outline-dark"> Company Website </Button>
                     <Button className="m-3" variant="outline-dark"> Share </Button>
-                    <Button className="m-3" variant="outline-dark"> Subscribe </Button>
-                    <p></p>
-                    <Button as="input" type="submit" variant="outline-success" value="Donate" />{' '}
-                    
+                    <Button className="m-3" variant="outline-dark"> Subscribe </Button> 
                 </Card.Body>
 
             </Card>
