@@ -14,6 +14,7 @@ import ProjectPage from './components/ProjectPage';
 import LoginPage from './components/LoginPage';
 import AboutUsPage from './components/AboutUsPage';
 import DonatePage from './components/DonatePage';
+import MapPage from './components/MapPage';
 
 // import bootstrap elements
 import {
@@ -45,6 +46,9 @@ function App() {
                     </Route>
                     <Route path="/donate">
                         <DonatePage />
+                    </Route>
+                    <Route path="/map">
+                        <MapPage />
                     </Route>
                     <Route path="/login">
                         <LoginPage />

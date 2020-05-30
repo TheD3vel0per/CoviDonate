@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
+from flask_api import status
 import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
@@ -7,9 +8,29 @@ from base64 import b64encode
 
 app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
-    'mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
+    'mongodb+srv://root:eWZ4RelgMAQoxxDw@\
+     rookiehacks2020-hmb4b.azure.mongodb.net/\
+     test?retryWrites=true&w=majority')
+
 db = client['development']
 private_key = open('./server/key.pem').read()
+
+# Author: Thomas Richmond
+def isJwtTokenValid(token):
+    try:
+        jwt.decode(
+            token,
+            private_key,
+            algorithms='RS256')
+    except:
+        """ Possible Raises:
+            JWTError (Signature Invalid)
+            ExpiredSignatureError
+            JWTClaimsError (Invalid Claims)    
+        """
+        return False
+    
+    return True
 
 
 
@@ -19,6 +40,14 @@ private_key = open('./server/key.pem').read()
 
 @app.route('/api/projects')
 def get_projects():
+
+    # check auth
+    json_data = request.get_json()
+    token = json_data['token']
+    if isJwtTokenValid(token):
+        msg = ''
+        return status.HTTP_403_FORBIDDEN
+
     projects = db.projects.find({})
     resulting_array = []
     for project in projects:
@@ -85,9 +114,8 @@ def auth():
     # compare hash
         # if hash is same, generate jwt
         # else fail
-    print(given_hash == b64encode(user['password']['hash']))
-    if (str(given_hash) == (user['password']['hash'])):
-        token = jwt.encode({'_id': user._id, 'email': user.email}, private_key, algorithm='RSA256')
+    if (given_hash == user['password']['hash'].encode('utf-8')):
+        token = jwt.encode({'_id': user['_id'], 'email': user['email']}, private_key, algorithm='RS256')
         print(token)
         return jsonify(token=token)
     else:

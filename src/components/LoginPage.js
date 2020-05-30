@@ -13,9 +13,31 @@ function LoginPage() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  }
+
+    const req = new Request();
+    req.json({
+      email: this.email,
+      password: this.password
+    });
+    fetch('/api/auth', req)
+      .then(async (result) => {
+        const data = await result.json();
+        if (data['token'] != undefined) {
+          sessionStorage.setItem('token', data['token']);
+          const tokenData = JSON.parse(atob(data['token'].split('.')[1]));
+
+          //tokenData = 
+        } else {
+          alert('Login failed!')
+        }
+      })
+      .catch((error) => {
+        alert('Login failed!');
+      });
+
+  };
 
   const LoadingIndicator = props => {
     const { promiseInProgress } = usePromiseTracker();
