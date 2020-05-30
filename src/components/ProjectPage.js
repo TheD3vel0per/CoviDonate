@@ -103,7 +103,7 @@ function Project() {
                         
                         <p ></p>
                         <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
-                        {/* TEST THE CODE BELOW*/}
+                        {/* NOTE TO NOAH, UNCOMMENT AND TEST THE CODE BELOW*/}
                         {/*  <FacebookIcon url={window.location.href} size={32}/> */}
                         <TwitterIcon size={32}/>
                     
