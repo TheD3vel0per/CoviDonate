@@ -28,6 +28,7 @@ function DonatePage() {
 
     { /* localStorage.getItem('token) =*/ }
     var user_state = localStorage.getItem('token');
+    
 
     return (
         <>
