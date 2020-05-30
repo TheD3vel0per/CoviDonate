@@ -2,11 +2,14 @@ from flask import Flask, request, jsonify, send_from_directory, render_template
 import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
+from hashlib import sha512
 
 app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
     'mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
 db = client['development']
+private_key = open('./server/key.pem').read()
+
 
 
 #
@@ -60,20 +63,33 @@ def auth():
     password = json_data['password']
 
     # get user document
-    user = db.users.find_one({
+    users = db.users.find({
         'email': email
     })
+    resulting_users_array = []
+    for user in users:
+        resulting_user_object = {}
+        for key in user.keys():
+            if (key == '_id'):
+                resulting_user_object[key] = str(user.get(key))
+            else:
+                resulting_user_object[key] = user.get(key)
+        resulting_users_array.append(resulting_user_object)
+        break
+    user = resulting_users_array[0]
+    print(user)
 
     # hash given password
+    given_hash = sha512(str(password + user['password']['salt']).encode('utf-8'))
 
-    # compare hash 
+    # compare hash
         # if hash is same, generate jwt
         # else fail
-
-    def generate_token()
-
-    return jsonify(token=generate_token(email, password))
-
+    if (given_hash == user['password']['hash']):
+        token = jwt.encode({'_id': user._id, 'email': user.email}, private_key, algorithm='RSA256')
+        return jsonify(token=token)
+    else:
+        return {}
 
 
 

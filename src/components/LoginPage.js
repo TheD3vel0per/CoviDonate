@@ -1,8 +1,7 @@
-import React, { useState , Component } from "react";
+import React, { useState, Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
-import { render } from 'react-dom';
-import { App } from './app';
+import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from 'react-promise-tracker';
 import Loader from 'react-loader-spinner';
 
@@ -20,27 +19,31 @@ function LoginPage() {
 
   const LoadingIndicator = props => {
     const { promiseInProgress } = usePromiseTracker();
-  
-    return promiseInProgress && 
-         <h1>Hey some async call in progress ! </h1>;
-      <div
-        style={{
-          width: "100%",
-          height: "100",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
-      </div>
+
+    return promiseInProgress &&
+      (
+        <>
+          <h1>Hey some async call in progress ! </h1>
+          <div
+            style={{
+              width: "100%",
+              height: "100",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}>
+
+            <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
+          </div>
+        </>
+      );
   };
 
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-        <label>Email</label>
+          <label>Email</label>
           <FormControl
             autoFocus
             type="email"
@@ -49,7 +52,7 @@ function LoginPage() {
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-        <label>Password</label>
+          <label>Password</label>
           <FormControl
             value={password}
             onChange={e => setPassword(e.target.value)}

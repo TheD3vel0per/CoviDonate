@@ -13,6 +13,7 @@
 
 # db
 /server/DBCONNECT.txt
+/server/key.pem
 
 # misc
 .DS_Store

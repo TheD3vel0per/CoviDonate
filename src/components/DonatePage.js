@@ -1,32 +1,64 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-
+import {
+    Button,
+    Row,
+    Container,
+    Col,
+    InputGroup,
+    FormControl,
+    Form
+} from 'react-bootstrap';
 
 function DonatePage() {
 
+    const [value, setValue] = React.useState([1, 2, 3, 4, 5])
+
     return (
         <>
-
 <Container>
-  <Row>
-    <Col><Button variant="primary"> $5 </Button>{' '}</Col>
-    <Col><Button variant="primary"> $10 </Button>{' '}</Col>
-    <Col><Button variant="primary"> $20 </Button>{' '}</Col>
-  </Row>
-  <Row>
-    <Col><Button variant="primary"> $50 </Button>{' '}</Col>
-    <Col><Button variant="primary"> $100 </Button>{' '}</Col>
-    <Col><Button as="input" type="submit" variant="primary"> Enter Amount (CAD $) </Button>{' '}</Col>
-  </Row>
+    <Row>
+    <Col style={{marginTop: '25%', 
+                marginBottom: 30, 
+                textAlign: 'center'}}
+                ><h2 style={{
+                    color: '#454545',
+                    fontWeight: 'bold',
+                    fontSize: '3em',
+                textShadow: '0px 1px 3px #454545',
+                textShadow: '0px 5px 4px #454545',
+                textShadow: '0px 7px 16px #e0e0e0'
+                }}>Donate Now</h2>
+                </Col>
+    </Row>
+  <Row >
+    <Col style={{
+        width: 'inherit'
+    }}><Button block variant="primary"> $5 </Button>{' '}</Col>
+    <Col><Button block variant="primary"> $10 </Button>{' '}</Col>
+    <Col><Button block variant="primary"> $20 </Button>{' '}</Col>
+    <Col><Button block variant="primary"> $50 </Button>{' '}</Col>
+    <Col style={{
+        marginBottom: '10%'
+    }}><Button block variant="primary"> $100 </Button>{' '}</Col>
+       
+    </Row>
+    <p></p>
 
-</Container>
+    <Row >
+    <InputGroup  className="mb-3">
+    <InputGroup.Prepend>
+      <InputGroup.Text>$</InputGroup.Text>
+    </InputGroup.Prepend>
+    <FormControl aria-label="Amount (to the nearest dollar)" />
+    <InputGroup.Append>
+      <InputGroup.Text>.00</InputGroup.Text>
+    </InputGroup.Append>
+  </InputGroup>
+    </Row>
 
-         
-              
+    </Container>
+
+ 
         </>
     );
 }
