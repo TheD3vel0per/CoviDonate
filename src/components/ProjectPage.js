@@ -5,6 +5,11 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
 import Carousel from 'react-bootstrap/Carousel'
 
+import {
+    FacebookIcon,
+    TwitterIcon
+  } from "react-share";
+
 function Project() {
 
     const { id } = useParams();
@@ -97,8 +102,8 @@ function Project() {
                         
                         <p ></p>
                         <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
-                        <Button href="#" className="m-3" variant="outline-dark"> Share </Button>
-                        <Button href="#" className="m-3" variant="outline-dark"> Subscribe </Button>
+                        <FacebookIcon size={32}/>
+                        <TwitterIcon size={32}/>
                     
                     <div></div>
                     
