@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
 
-export default function Login() {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +18,7 @@ export default function Login() {
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="email" bsSize="large">
-          <ControlLabel>Email</ControlLabel>
+        <label>Email</label>
           <FormControl
             autoFocus
             type="email"
@@ -27,7 +27,7 @@ export default function Login() {
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
-          <ControlLabel>Password</ControlLabel>
+        <label>Password</label>
           <FormControl
             value={password}
             onChange={e => setPassword(e.target.value)}
@@ -42,9 +42,5 @@ export default function Login() {
   );
 }
 
-
-export default LoginPage;
-
-export default LoginPage;
 
 export default LoginPage;

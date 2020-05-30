@@ -11,7 +11,8 @@ import {
 // import components
 import HomePage from './components/HomePage';
 import ProjectPage from './components/ProjectPage';
-// import LoginPage from './components/LoginPage';
+import LoginPage from './components/LoginPage';
+import AboutUsPage from './components/AboutUsPage';
 
 // import bootstrap elements
 import {
@@ -43,9 +44,12 @@ function App() {
                     <Route path="/project/:id">
                         <ProjectPage />
                     </Route>
-                    {/* <Route path="/login">
+                    <Route path="/about-us">
+                        <AboutUsPage />
+                    </Route>
+                    <Route path="/login">
                         <LoginPage />
-                    </Route> */}
+                    </Route>
                     <Route path="/">
                         <HomePage />
                     </Route>

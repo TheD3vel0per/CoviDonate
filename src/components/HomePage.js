@@ -139,7 +139,7 @@ function HomePage() {
         }
     ];
 
-    const [projects, setProjects] = React.useState([]);
+    const [projects, setProjects] = React.useState(sampleData);
 
     const load = () => {
         console.log('homepage load!');

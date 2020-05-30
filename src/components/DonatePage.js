@@ -1,17 +1,16 @@
 import React from 'react';
 
+
 function DonatePage() {
 
     return (
-    
-        <form>
-            <div className="form-group">
-                <label for="example@gmail.com">Email Address</label>
-                <input type="email" className="form-control" placeholder="Email">
-            </div>
-
-        </form>
-
+        <>
+            <Button variant="primary"> $5 </Button>{' '}
+            <Button variant="primary"> $10 </Button>{' '}
+            <Button variant="primary"> $20 </Button>{' '}
+            <Button variant="primary"> $50 </Button>{' '}
+            <Button variant="primary"> $100 </Button>{' '}
+        </>
     );
 }
 
