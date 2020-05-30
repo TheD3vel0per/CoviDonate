@@ -42,10 +42,12 @@ def get_project(id):
         break
     return jsonify(resulting_array[0])
 
-@app.route('/')
+@app.route('/project')
 def root():
-    print('test')
+    app.send_static_file('index.html')
     return 'test'
+
+
 
 @app.route('/<path:path>')
 def other(path):

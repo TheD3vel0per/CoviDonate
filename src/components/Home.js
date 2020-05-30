@@ -3,7 +3,8 @@ import {
     Button,
     Card,
     CardDeck,
-    CardGroup
+    CardGroup,
+    Container
 } from 'react-bootstrap';
 import './styles/Home.css';
 
@@ -94,10 +95,50 @@ function Home() {
                 "donationGoals": ""
             },
             "tags": ["keywords"]
+        },
+        {
+            "id": "7",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "8",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "9",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": "",
+                "donationGoals": ""
+            },
+            "tags": ["keywords"]
         }
     ]
-
-    
 
     const variant = [
         'Primary',
@@ -113,37 +154,40 @@ function Home() {
 
     let rows = [];
 
-    return (
-        
+    const navToPage = (id) => {
+        // reroute to `/projects/:id`
+    };
 
-        <div>
-            <CardGroup>
+    return (
+
+
+        <Container fluid={true} >
+
+            <div className="row">
 
                 {sampleData.map(obj => {
 
                     return (
-
-                        <div class="card-columns">
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
-                            <Card.Body>
-                                <Card.Title>{obj.title}</Card.Title>
-                                <Card.Text>
-                                    {obj.shortDescription}
-                                </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                            </Card.Body>
-                        </Card>
+                        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
+                            <Card className="border-info">
+                                <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
+                                <Card.Body>
+                                    <Card.Title>{obj.title}</Card.Title>
+                                    <Card.Text>
+                                        {obj.shortDescription}
+                                    </Card.Text>
+                                    <Button variant="primary" click={() => navToPage(obj._id)}>Go somewhere</Button>
+                                </Card.Body>
+                            </Card>
                         </div>
-                        
+
                     );
 
                 })}
-               
 
-            </CardGroup>
-            
-        </div>
+            </div>
+
+        </Container>
     );
 }
 
