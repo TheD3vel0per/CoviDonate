@@ -68,11 +68,10 @@ function DonatePage() {
                     </Form.Row>
                     <p></p>
             
-                <Form.Row>
-                    <Form.Group as={Col} md="6" controlId="validationCustom03" style= {{marginBottom: 30}} >
-                    <Form.Label>Other Amount</Form.Label>
-                    <Form.Control style={{marginBottom: 50}} type="text" placeholder="CAD $"  />
-                    
+                    <Form.Row>
+                        <Form.Group as={Col} md="6" controlId="validationCustom03" style= {{marginBottom: 30}} >
+                        <Form.Label>Other Amount</Form.Label>
+                        <Form.Control style={{marginBottom: 50}} type="text" placeholder="CAD $"  />
                     </Form.Group>
                     
                 
