@@ -70,7 +70,7 @@ function DonatePage() {
                     <p></p>
             
                     <Form.Row>
-                        <Form.Group as={Col} md="6" controlId="validationCustom03" style= {{marginBottom: 30}} >
+                        <Form.Group as={Col} md="12" controlId="validationCustom03" style= {{marginBottom: 30}} >
                         
                             <Form.Label>Other Amount</Form.Label>
                             
