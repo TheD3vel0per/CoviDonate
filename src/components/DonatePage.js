@@ -29,8 +29,9 @@ function DonatePage() {
 
     return (
         <>
-            <Form>
-                <Container>
+            
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Container>
                     <Form.Row>
                         <Col style={{
                             marginTop: '25%',
@@ -38,64 +39,60 @@ function DonatePage() {
                             textAlign: 'center'
                         }}
                         ><h2 style={{
-                            color: '#454545',
+                            
+                            
+                            color: '#141114',
                             fontWeight: 'bold',
-                            fontSize: '3em',
-                            textShadow: '0px 1px 3px #454545',
-                            textShadow: '0px 5px 4px #454545',
-                            textShadow: '0px 7px 16px #e0e0e0'
+                            fontSize: '4em',
+                            textShadow: '0px 1px 13px #454545',
+                           
+                            
+                            
                         }}>Donate Now</h2>
                         </Col>
                     </Form.Row>
-                    <Row >
+                    <Form.Row >
                         <Col style={{
                             width: 'inherit'
-                        }}><Button block variant="primary"> $5 </Button>{' '}</Col>
-                        <Col><Button block variant="primary"> $10 </Button>{' '}</Col>
-                        <Col><Button block variant="primary"> $20 </Button>{' '}</Col>
-                        <Col><Button block variant="primary"> $50 </Button>{' '}</Col>
+                        }}><Button style={{border: '1px solid #8f8f8f', 
+                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $5 </Button>{' '}</Col>
+                        <Col><Button style={{border: '1px solid #8f8f8f', 
+                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $10 </Button>{' '}</Col>
+                        <Col><Button style={{border: '1px solid #8f8f8f', 
+                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $20 </Button>{' '}</Col>
+                        <Col><Button style={{border: '1px solid #8f8f8f', 
+                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $50 </Button>{' '}</Col>
                         <Col style={{
                             marginBottom: '10%'
-                        }}><Button block variant="primary"> $100 </Button>{' '}</Col>
+                        }}><Button style={{border: '1px solid #8f8f8f', 
+                        boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $100 </Button>{' '}</Col>
 
-                    </Row>
+                    </Form.Row>
                     <p></p>
+            
+                <Form.Row>
+                    <Form.Group as={Col} md="6" controlId="validationCustom03" className="">
+                    <Form.Label>Other Amount</Form.Label>
+                    <Form.Control type="text" placeholder="CAD $" required />
+                    <Form.Control.Feedback type="invalid">
+                        Please provide a number.
+                    </Form.Control.Feedback>
+                    </Form.Group>
 
-                    
-                
-
-                </Container>
-
-            </Form>
-
-
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Container>
-        <Form.Row>
+                </Form.Row>
+                <Form.Group>
+                    <Form.Check
+                        required
+                        label="Agree to terms and conditions"
+                        feedback="You must agree before submitting."
+                        />
+                </Form.Group>
+                <Button size="lg" type="number submit"> Donate </Button>
+            
+            </Container>
+        </Form>
 
         
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom03" className="">
-          <Form.Label>Other Amount</Form.Label>
-          <Form.Control type="text" placeholder="CAD $" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a number.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-      </Form.Row>
-      <Form.Group>
-        <Form.Check
-          required
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
-        />
-      </Form.Group>
-      <Button size="lg" type="submit"> Donate </Button>
-      </Container>
-
-    </Form>
         </>
     );
 }

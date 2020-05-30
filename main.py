@@ -1,6 +1,4 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
-from flask_api import status
-
 import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
@@ -8,10 +6,7 @@ from hashlib import sha512
 from base64 import b64encode
 
 app = Flask(__name__, static_url_path='/build')
-client = pymongo.MongoClient(
-    'mongodb+srv://root:eWZ4RelgMAQoxxDw@\
-     rookiehacks2020-hmb4b.azure.mongodb.net/\
-     test?retryWrites=true&w=majority')
+client = pymongo.MongoClient(open('./server/DBCONNECT.txt').read())
 
 db = client['development']
 private_key = open('./server/key.pem').read()
@@ -46,8 +41,8 @@ def get_projects():
     json_data = request.get_json()
     token = json_data['token']  # Make sure the user has a valid JWT
     if isJwtTokenValid(token):  # token; else, block further access.
-        prompt = 'Access token invalid!'
-        return prompt, status.HTTP_403_FORBIDDEN
+        Flask.abort(401)
+        return ''
 
     projects = db.projects.find({})
     resulting_array = []
@@ -62,15 +57,44 @@ def get_projects():
         pass
     return jsonify(resulting_array)
 
-@app.route('/api/project/<id>')
-def get_project(id):
+
+@app.route('/api/projects/recommended')
+def get_recommended_projects():
 
     # check auth
     json_data = request.get_json()
     token = json_data['token']  # Make sure the user has a valid JWT
     if isJwtTokenValid(token):  # token; else, block further access.
-        prompt = 'Access token invalid!'
-        return prompt, status.HTTP_403_FORBIDDEN
+        Flask.abort(401)
+        return ''
+
+    # get tags
+    tags = json_data['tags']
+    query = { 'tags': { '$all': tags } }
+
+    projects = db.projects.find(query)
+    resulting_array = []
+    for project in projects:
+        resulting_object = {}
+        for key in project.keys():
+            if (key == '_id'):
+                resulting_object[key] = str(project.get(key))
+            else:
+                resulting_object[key] = project.get(key)
+        resulting_array.append(resulting_object)
+        pass
+    return jsonify(resulting_array)
+
+
+@app.route('/api/project/<id>')
+def get_project(id):
+
+    # check auth
+    # json_data = request.get_json()
+    # token = json_data['token']  # Make sure the user has a valid JWT
+    # if isJwtTokenValid(token):  # token; else, block further access.
+    #     Flask.abort(401)
+    #     return ''
 
     projects = db.projects.find({
         '_id': ObjectId(id) # wrap this part with `ObjectId()`
@@ -86,9 +110,6 @@ def get_project(id):
         resulting_array.append(resulting_object)
         break
     return jsonify(resulting_array[0])
-
-
-
 
 
 #

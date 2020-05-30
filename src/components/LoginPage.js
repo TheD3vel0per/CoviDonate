@@ -1,6 +1,6 @@
 import React, { useState, Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.css";
+import "./styles/Login.css";
 import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from 'react-promise-tracker';
 import Loader from 'react-loader-spinner';
@@ -16,10 +16,10 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const req = new Request();
+    const req = new Request('/api/auth');
     req.json({
-      email: this.email,
-      password: this.password
+      email: email,
+      password: password
     });
     fetch('/api/auth', req)
       .then(async (result) => {
