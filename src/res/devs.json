@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Devam Sisodraker",
+        "role": "Project Lead",
+        "desc": "About yourself",
+        "path": "/headshots/devam.jpg"
+    },
+    {
+        "name": "Vishal Desh",
+        "role": "Assistant Project Lead",
+        "desc": "About yourself",
+        "path": "/headshots/vishal.jpg"
+    },
+    {
+        "name": "Noah Caleanu",
+        "role": "Lead Heartthrob",
+        "desc": "About yourself",
+        "path": "/headshots/noah.jpg"
+    },
+    {
+        "name": "Thomas Richmond",
+        "role": "Last Minute Developer",
+        "desc": "About yourself",
+        "path": "/headshots/thomas.jpg"
+    }
+]

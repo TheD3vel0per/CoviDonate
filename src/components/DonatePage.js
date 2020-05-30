@@ -12,10 +12,6 @@ import {
 function DonatePage() {
 
     const [validated, setValidated] = React.useState(false);
-    {/* code snippet to authenticate user on page. 
-    If not logged in returns Null, None, or empty or something*/}
-
-    {/* localStorage.getItem('token) =*/}
 
     const handleSubmit = (event) => {
       const form = event.currentTarget;
@@ -26,6 +22,12 @@ function DonatePage() {
   
       setValidated(true);
     };
+
+    {/* code snippet to authenticate user on page. 
+    If not logged in returns Null, None, or empty or something*/}
+
+    { /* localStorage.getItem('token) =*/ }
+    var user_state = localStorage.getItem('token');
 
     return (
         <>
@@ -39,15 +41,11 @@ function DonatePage() {
                             textAlign: 'center'
                         }}
                         ><h2 style={{
-                            
-                            
+                    
                             color: '#141114',
                             fontWeight: 'bold',
                             fontSize: '4em',
-                            textShadow: '0px 1px 13px #454545',
-                           
-                            
-                            
+                            textShadow: '5px 8px 10px #696969',                       
                         }}>Donate Now</h2>
                         </Col>
                     </Form.Row>
@@ -55,17 +53,17 @@ function DonatePage() {
                         <Col style={{
                             width: 'inherit'
                         }}><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $5 </Button>{' '}</Col>
+                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $5 </Button>{' '}</Col>
                         <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $10 </Button>{' '}</Col>
+                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $10 </Button>{' '}</Col>
                         <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $20 </Button>{' '}</Col>
+                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $20 </Button>{' '}</Col>
                         <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $50 </Button>{' '}</Col>
+                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $50 </Button>{' '}</Col>
                         <Col style={{
                             marginBottom: '10%'
                         }}><Button style={{border: '1px solid #8f8f8f', 
-                        boxShadow: '0px 3px 8px #888888'}} block variant="primary"> $100 </Button>{' '}</Col>
+                        boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $100 </Button>{' '}</Col>
 
                     </Form.Row>
                     <p></p>
@@ -78,8 +76,16 @@ function DonatePage() {
                         Please provide a number.
                     </Form.Control.Feedback>
                     </Form.Group>
-
+                    
+                
                 </Form.Row>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+
+
                 <Form.Group>
                     <Form.Check
                         required
@@ -87,6 +93,7 @@ function DonatePage() {
                         feedback="You must agree before submitting."
                         />
                 </Form.Group>
+                
                 <Button size="lg" type="number submit"> Donate </Button>
             
             </Container>

@@ -30,6 +30,39 @@ function App() {
     // TODO Removeme
     // localStorage.setItem('name', "TEST_NAME");
 
+    const logout = () => {
+        localStorage.removeItem('_id');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+    };
+
+
+    // Selectively render a greeting if 'name' is defined using an IIFE
+    const Greeting = (props) => {
+        const name = localStorage.getItem('name');
+        return !!name && (
+            <NavItem>
+                <span class='navgreet'>Welcome, {name}! </span>
+            </NavItem>
+        );
+    }
+
+    // Ternary expression conditionally renders a
+    // logout button if there is a 'name' token in
+    // localstorage; else it renders a login button.
+    // Implemented using an IIFE
+    const LogButton = (props) => {
+        const name = localStorage.getItem('name');
+        
+        if (name)
+            return (
+                <Button class='navlogbtn' type="submit" onClick={logout}>
+                    Logout
+                </Button>);
+        else
+            return (<Button class='navlogbtn' to="/login">Login</Button>);
+    };
+
     return (
         <div className="App">
             <BrowserRouter>
@@ -41,34 +74,22 @@ function App() {
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav class='ml-auto'>
-                                {/* Selectively render a greeting if 'name' is defined
-                                    using an IIFE*/}
-                                {
-                                    ((name) => !!name &&
-                                                <NavItem>
-                                                    <span class='navgreet'>Welcome, {name}! </span>
-                                                </NavItem>
-                                    )(localStorage.getItem('name'))
-                                }
-                                
-                                {/* Ternary expression conditionally renders a
-                                    logout button if there is a 'name' token in
-                                    localstorage; else it renders a login button.
-                                    Implemented using an IIFE*/}
+                            <Nav>
                                 <Form>
-                                    {
-                                        ((name) => 
-                                        {
-                                            if (name)
-                                                return (
-                                                    <Button class='navlogbtn' type="submit">
-                                                        Logout
-                                                    </Button>);
-                                            else
-                                                return (<Link class='navlogbtn' to="/login">Login</Link>);
-                                        })(!!localStorage.getItem('name'))
-                                    }
+                                    <Button type='submit' onClick={() => localStorage.setItem('name', 'TEST_NAME')}>
+                                        POPULATE_NAME
+                                    </Button>
+                                </Form>
+                                <Form>
+                                    <Button type='submit' onClick={() => localStorage.removeItem('name')}>
+                                        UNPOPULATE_NAME
+                                    </Button>
+                                </Form>
+                            </Nav>
+                            <Nav class='ml-auto'>
+                                <Greeting/>
+                                <Form>
+                                    <LogButton/>
                                 </Form>
                             </Nav>
                         </Navbar.Collapse>

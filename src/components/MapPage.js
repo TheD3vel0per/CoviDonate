@@ -3,28 +3,40 @@ import axios from 'axios'
 
 function MapPage(props) {
 
-  const [state, stateSet] = React.useState('');
+  const [country, countrySet] = React.useState('');
+  const [province, provinceSet] = React.useState('');
+
+  // const getGeoInfo = () => {
+  //   axios.get('https://ipapi.co/json/').then((response) => {
+  //     let data = response.data;
+  //     stateSet({
+  //       countryName: data.country_name,
+  //       countryCode: data.country_calling_code
+  //     });
+  //   }).catch((error) => {
+  //     console.log(error);
+  //   });
+  // };
+
+  //countryName: data.country_name,
+  //countryCode: data.country_calling_code
 
   const getGeoInfo = () => {
-    axios.get('https://ipapi.co/json/').then((response) => {
-      let data = response.data;
-      stateSet({
-        countryName: {this.state.countryName},
-        countryCode: data.country_calling_code
-      });
-    }).catch((error) => {
-      console.log(error);
-    });
-  };
 
-  const onLoad = () => {
-    this.getGeoInfo();
+    fetch('https://ipapi.co/json')
+      .then((result) => {
+        console.log('endpoint data received')
+        return result.json();
+      }).then((data) => {
+        countrySet(data['country']);
+        provinceSet(data['region']);
+      }).catch(console.log);
   };
 
   return (
-    <div onLoad={onLoad}>
-      <p>Country Name: {state.countryName}</p>
-      <p>Country Code: {state.countryCode}</p>
+    <div onLoad={getGeoInfo()}>
+      <p>Country: {country}</p>
+      <p>Province: {province}</p>
     </div>
   );
 }
