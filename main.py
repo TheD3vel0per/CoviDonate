@@ -7,8 +7,25 @@ client = pymongo.MongoClient(
 db = client['development']
 
 
-@app.route('/projects')
+@app.route('/api/projects')
 def get_projects():
+    projects = db.projects.find({})
+    resulting_array = []
+    for project in projects:
+        resulting_object = {}
+        for key in project.keys():
+            if (key == '_id'):
+                resulting_object[key] = str(project.get(key))
+            else:
+                resulting_object[key] = project.get(key)
+        resulting_array.append(resulting_object)
+        pass
+    return jsonify(resulting_array)
+
+
+# VISHAL DO THIS ENDPOINT
+@app.route('/api/project/:id')
+def get_project():
     projects = db.projects.find({})
     resulting_array = []
     for project in projects:
@@ -36,29 +53,29 @@ if (__name__ == "__main__"):
     print("Application has loaded!")
 
 
-"""
----> Code template for JSON APIs
+# """
+# ---> Code template for JSON APIs
 
-@app.route('/api/auth')
-def auth():
-    json_data = request.get_json()
-    email = json_data['email']
-    password = json_data['password']
-    return jsonify(token=generate_token(email, password))
+# @app.route('/api/auth')
+# def auth():
+#     json_data = request.get_json()
+#     email = json_data['email']
+#     password = json_data['password']
+#     return jsonify(token=generate_token(email, password))
 
-with app.test_client() as c:
-    rv = c.post('/api/auth', json={
-        'email': 'flask@example.com', 'password': 'secret'
-    })
-    json_data = rv.get_json()
-    assert verify_token(email, json_data['token'])
-    """
+# with app.test_client() as c:
+#     rv = c.post('/api/auth', json={
+#         'email': 'flask@example.com', 'password': 'secret'
+#     })
+#     json_data = rv.get_json()
+#     assert verify_token(email, json_data['token'])
+#     """
 
-"""
----> Code template for collection query
-"""
+# """
+# ---> Code template for collection query
+# """
 
-# app = flask.Flask(__name__)
+# # app = flask.Flask(__name__)
 # app.config["DEBUG"] = True
 
 # # Create some test data for our catalog in the form of a list of dictionaries.

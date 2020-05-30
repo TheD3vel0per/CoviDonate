@@ -8,8 +8,6 @@ import {
 import './styles/Home.css';
 
 
-
-
 function Home() {
 
     const sampleData = [
