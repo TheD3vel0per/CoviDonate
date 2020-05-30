@@ -25,12 +25,14 @@ function LoginPage() {
       .then(async (result) => {
         const data = await result.json();
         if (data['token'] != undefined) {
-          sessionStorage.setItem('token', data['token']);
+          localStorage.setItem('token', data['token']);
           const tokenData = JSON.parse(atob(data['token'].split('.')[1]));
 
-          //tokenData = 
+          localStorage.setItem('_id', tokenData['_id']);
+          localStorage.setItem('name', tokenData['name']);
+          localStorage.setItem('email', tokenData['email']);
         } else {
-          alert('Login failed!')
+          alert('Login failed!');
         }
       })
       .catch((error) => {

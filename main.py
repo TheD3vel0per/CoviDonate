@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_api import status
+
 import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
@@ -43,10 +44,10 @@ def get_projects():
 
     # check auth
     json_data = request.get_json()
-    token = json_data['token']
-    if isJwtTokenValid(token):
-        msg = ''
-        return status.HTTP_403_FORBIDDEN
+    token = json_data['token']  # Make sure the user has a valid JWT
+    if isJwtTokenValid(token):  # token; else, block further access.
+        prompt = 'Access token invalid!'
+        return prompt, status.HTTP_403_FORBIDDEN
 
     projects = db.projects.find({})
     resulting_array = []
@@ -63,6 +64,14 @@ def get_projects():
 
 @app.route('/api/project/<id>')
 def get_project(id):
+
+    # check auth
+    json_data = request.get_json()
+    token = json_data['token']  # Make sure the user has a valid JWT
+    if isJwtTokenValid(token):  # token; else, block further access.
+        prompt = 'Access token invalid!'
+        return prompt, status.HTTP_403_FORBIDDEN
+
     projects = db.projects.find({
         '_id': ObjectId(id) # wrap this part with `ObjectId()`
     })
@@ -115,7 +124,7 @@ def auth():
         # if hash is same, generate jwt
         # else fail
     if (given_hash == user['password']['hash'].encode('utf-8')):
-        token = jwt.encode({'_id': user['_id'], 'email': user['email']}, private_key, algorithm='RS256')
+        token = jwt.encode({'_id': user['_id'], 'email': user['email'], 'name': user['name']}, private_key, algorithm='RS256')
         print(token)
         return jsonify(token=token)
     else:

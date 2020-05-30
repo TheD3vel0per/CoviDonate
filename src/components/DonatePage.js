@@ -11,13 +11,27 @@ import {
 
 function DonatePage() {
 
-    const [value, setValue] = React.useState([1, 2, 3, 4, 5]);
+    const [validated, setValidated] = React.useState(false);
+    {/* code snippet to authenticate user on page. 
+    If not logged in returns Null, None, or empty or something*/}
+
+    {/* localStorage.getItem('token) =*/}
+
+    const handleSubmit = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+  
+      setValidated(true);
+    };
 
     return (
         <>
             <Form>
                 <Container>
-                    <Row>
+                    <Form.Row>
                         <Col style={{
                             marginTop: '25%',
                             marginBottom: 30,
@@ -32,7 +46,7 @@ function DonatePage() {
                             textShadow: '0px 7px 16px #e0e0e0'
                         }}>Donate Now</h2>
                         </Col>
-                    </Row>
+                    </Form.Row>
                     <Row >
                         <Col style={{
                             width: 'inherit'
@@ -47,23 +61,41 @@ function DonatePage() {
                     </Row>
                     <p></p>
 
-                    <Row >
-                        <h4>Other Amount: </h4>
-                        <InputGroup style={{ width: '80%' }} className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text>$</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl aria-label="Amount (to the nearest dollar)" />
-                            <InputGroup.Append>
-                                <InputGroup.Text>.00</InputGroup.Text>
-                                <Button variant="primary" type="submit">Submit</Button>
-                            </InputGroup.Append>
-                        </InputGroup>
-                    </Row>
+                    
+                
 
                 </Container>
 
             </Form>
+
+
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Container>
+        <Form.Row>
+
+        
+      </Form.Row>
+      <Form.Row>
+        <Form.Group as={Col} md="6" controlId="validationCustom03" className="">
+          <Form.Label>Other Amount</Form.Label>
+          <Form.Control type="text" placeholder="CAD $" required />
+          <Form.Control.Feedback type="invalid">
+            Please provide a number.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+      </Form.Row>
+      <Form.Group>
+        <Form.Check
+          required
+          label="Agree to terms and conditions"
+          feedback="You must agree before submitting."
+        />
+      </Form.Group>
+      <Button size="lg" type="submit"> Donate </Button>
+      </Container>
+
+    </Form>
         </>
     );
 }

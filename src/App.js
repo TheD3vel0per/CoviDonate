@@ -1,6 +1,5 @@
 // import dependenies
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {
     BrowserRouter,
     Switch,
@@ -18,23 +17,34 @@ import MapPage from './components/MapPage';
 
 // import bootstrap elements
 import {
-    Navbar
+    Navbar, Nav, NavItem
 } from 'react-bootstrap';
 
 // import css
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
+    const [name, nameSet] = React.useState('noName');
+
+
+
     return (
         <div className="App">
             <BrowserRouter>
-                <div style={{ paddingBottom: '10px' }}>
+                <div style={{ paddingBottom: '10px' }} onLoad={() => nameSet(localStorage.getItem('name'))}>
                     <Navbar bg="dark" expand="lg">
                         <Navbar.Brand href="#home">
                             <Link to="/" style={{ color: 'white', underline: 'none' }}>CoviDonate</Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav>
+                            </Nav>
+                        </Navbar.Collapse>
                     </Navbar>
+
                 </div>
 
                 <Switch>
