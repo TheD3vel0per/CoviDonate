@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+
 
 function DonatePage() {
 
@@ -18,16 +20,13 @@ function DonatePage() {
   <Row>
     <Col><Button variant="primary"> $50 </Button>{' '}</Col>
     <Col><Button variant="primary"> $100 </Button>{' '}</Col>
-    <Col><Button variant="primary"> Enter Amount </Button>{' '}</Col>
+    <Col><Button as="input" type="submit" variant="primary"> Enter Amount (CAD $) </Button>{' '}</Col>
   </Row>
 
 </Container>
 
-            
-            
-            
-            
-            
+         
+              
         </>
     );
 }

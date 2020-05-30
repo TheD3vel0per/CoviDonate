@@ -1,0 +1,9 @@
+{
+    "_id": "",
+    "name": "",
+    "email": "",
+    "password": {
+        "hash": "",
+        "salt": ""
+    }
+}

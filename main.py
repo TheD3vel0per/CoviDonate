@@ -1,12 +1,17 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 import pymongo
 from bson.objectid import ObjectId
+from jose import jwt
 
 app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
     'mongodb+srv://root:eWZ4RelgMAQoxxDw@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
 db = client['development']
 
+
+#
+# Querying Endpoints :
+#
 
 @app.route('/api/projects')
 def get_projects():
@@ -23,8 +28,6 @@ def get_projects():
         pass
     return jsonify(resulting_array)
 
-# VISHAL DO THIS ENDPOINT
-# thanks vishy <3
 @app.route('/api/project/<id>')
 def get_project(id):
     projects = db.projects.find({
@@ -42,6 +45,44 @@ def get_project(id):
         break
     return jsonify(resulting_array[0])
 
+
+
+
+
+#
+# Auth Endpoints:
+#
+
+@app.route('/api/auth')
+def auth():
+    json_data = request.get_json()
+    email = json_data['email']
+    password = json_data['password']
+
+    # get user document
+    user = db.users.find_one({
+        'email': email
+    })
+
+    # hash given password
+
+    # compare hash 
+        # if hash is same, generate jwt
+        # else fail
+
+    def generate_token()
+
+    return jsonify(token=generate_token(email, password))
+
+
+
+
+
+
+#
+# Static Serving React
+#
+
 @app.route('/')
 def root():
     return send_from_directory('./build', 'index.html')
@@ -53,6 +94,9 @@ def other(path):
 if (__name__ == "__main__"):
     app.run()
     print("Application has loaded!")
+
+
+
 
 
 # """
