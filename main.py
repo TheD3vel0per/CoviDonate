@@ -3,6 +3,7 @@ import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
 from hashlib import sha512
+from base64 import b64encode
 
 app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
@@ -77,16 +78,19 @@ def auth():
         resulting_users_array.append(resulting_user_object)
         break
     user = resulting_users_array[0]
-    print(user)
 
     # hash given password
-    given_hash = sha512(str(password + user['password']['salt']).encode('utf-8'))
+    given_hash = b64encode(sha512(str(password + user['password']['salt']).encode('utf-8')).digest())
 
     # compare hash
         # if hash is same, generate jwt
         # else fail
-    if (given_hash == user['password']['hash']):
+    print(str(given_hash))
+    print(user['password']['hash'])
+    print(str(given_hash) == user['password']['hash'])
+    if (str(given_hash) == user['password']['hash']):
         token = jwt.encode({'_id': user._id, 'email': user.email}, private_key, algorithm='RSA256')
+        print(token)
         return jsonify(token=token)
     else:
         return {}

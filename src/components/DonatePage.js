@@ -15,8 +15,9 @@ function DonatePage() {
 
     return (
         <>
-<Container>
-    <Row>
+    <Form>
+        <Container>
+        <Row>
     <Col style={{marginTop: '25%', 
                 marginBottom: 30, 
                 textAlign: 'center'}}
@@ -45,20 +46,22 @@ function DonatePage() {
     <p></p>
 
     <Row >
-    <InputGroup  className="mb-3">
+        <h4 style={{marginRight: '100'}}>Other Amount: </h4>
+    <InputGroup  style = {{width: '50%'}} className="mb-3">
     <InputGroup.Prepend>
       <InputGroup.Text>$</InputGroup.Text>
     </InputGroup.Prepend>
     <FormControl aria-label="Amount (to the nearest dollar)" />
     <InputGroup.Append>
       <InputGroup.Text>.00</InputGroup.Text>
+      <Button variant="dark" type="submit">Submit</Button>
     </InputGroup.Append>
   </InputGroup>
     </Row>
 
     </Container>
 
- 
+ </Form>
         </>
     );
 }
