@@ -36,7 +36,7 @@ function DonatePage() {
             <Container>
                     <Form.Row>
                         <Col style={{
-                            marginTop: '25%',
+                            marginTop: '15%',
                             marginBottom: 30,
                             textAlign: 'center'
                         }}
@@ -69,9 +69,9 @@ function DonatePage() {
                     <p></p>
             
                 <Form.Row>
-                    <Form.Group as={Col} md="6" controlId="validationCustom03" className="">
+                    <Form.Group as={Col} md="6" controlId="validationCustom03" style= {{marginBottom: 30}} className="">
                     <Form.Label>Other Amount</Form.Label>
-                    <Form.Control type="text" placeholder="CAD $" required />
+                    <Form.Control style={{marginBottom: 50}} type="text" placeholder="CAD $" required />
                     <Form.Control.Feedback type="invalid">
                         Please provide a number.
                     </Form.Control.Feedback>

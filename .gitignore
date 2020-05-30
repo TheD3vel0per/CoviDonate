@@ -8,9 +8,6 @@
 # testing
 /coverage
 
-# production
-/build
-
 # db
 /server/DBCONNECT.txt
 /server/key.pem
