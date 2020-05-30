@@ -11,7 +11,7 @@ import {
 
 function DonatePage() {
 
-    const [value, setValue] = React.useState([1, 2, 3, 4, 5])
+    const [value, setValue] = React.useState([1, 2, 3, 4, 5]);
 
     return (
         <>
@@ -46,15 +46,15 @@ function DonatePage() {
     <p></p>
 
     <Row >
-        <h4 style={{marginRight: '100'}}>Other Amount: </h4>
-    <InputGroup  style = {{width: '50%'}} className="mb-3">
+    <h4>Other Amount: </h4>
+    <InputGroup style = {{width: '80%'}} className="mb-3">
     <InputGroup.Prepend>
       <InputGroup.Text>$</InputGroup.Text>
     </InputGroup.Prepend>
     <FormControl aria-label="Amount (to the nearest dollar)" />
     <InputGroup.Append>
       <InputGroup.Text>.00</InputGroup.Text>
-      <Button variant="dark" type="submit">Submit</Button>
+      <Button variant="primary" type="submit">Submit</Button>
     </InputGroup.Append>
   </InputGroup>
     </Row>

@@ -85,10 +85,8 @@ def auth():
     # compare hash
         # if hash is same, generate jwt
         # else fail
-    print(str(given_hash))
-    print(user['password']['hash'])
-    print(str(given_hash) == user['password']['hash'])
-    if (str(given_hash) == user['password']['hash']):
+    print(given_hash == b64encode(user['password']['hash']))
+    if (str(given_hash) == (user['password']['hash'])):
         token = jwt.encode({'_id': user._id, 'email': user.email}, private_key, algorithm='RSA256')
         print(token)
         return jsonify(token=token)
