@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
 import pymongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__, static_url_path='/build')
 client = pymongo.MongoClient(
@@ -24,9 +25,11 @@ def get_projects():
 
 
 # VISHAL DO THIS ENDPOINT
-@app.route('/api/project/:id')
-def get_project():
-    projects = db.projects.find({})
+@app.route('/api/project/<id>')
+def get_project(id):
+    projects = db.projects.find({
+        '_id': ObjectId(id) # wrap this part with `ObjectId()`
+    })
     resulting_array = []
     for project in projects:
         resulting_object = {}
@@ -36,8 +39,8 @@ def get_project():
             else:
                 resulting_object[key] = project.get(key)
         resulting_array.append(resulting_object)
-        pass
-    return jsonify(resulting_array)
+        break
+    return jsonify(resulting_array[0])
 
 @app.route('/')
 def root():
