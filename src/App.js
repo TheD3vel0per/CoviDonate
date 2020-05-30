@@ -9,9 +9,9 @@ import {
 } from 'react-router-dom';
 
 // import components
-import Header from './components/Header';
-import Home from './components/Home';
-import Project from './components/Project';
+import HomePage from './components/HomePage';
+import ProjectPage from './components/ProjectPage';
+// import LoginPage from './components/LoginPage';
 
 // import bootstrap elements
 import {
@@ -41,10 +41,13 @@ function App() {
 
                 <Switch>
                     <Route path="/project/:id">
-                        <Project />
+                        <ProjectPage />
                     </Route>
+                    {/* <Route path="/login">
+                        <LoginPage />
+                    </Route> */}
                     <Route path="/">
-                        <Home />
+                        <HomePage />
                     </Route>
                 </Switch>
             </BrowserRouter>

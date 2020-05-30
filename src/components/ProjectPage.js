@@ -3,7 +3,6 @@ import { Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
-import './styles/Project.css';
 import Carousel from 'react-bootstrap/Carousel'
 
 function Project() {
@@ -78,23 +77,24 @@ function Project() {
                                                 textShadow: '0px 1px 3px #454545',
                                                 textShadow: '0px 3px 7px #454545',
                                                 textShadow: '0px 5px 10px #e0e0e0',
-                                                marginBottom: 25}}>
+                                                marginBottom: 45}}>
                             {project.shortDescription}
                         </Card.Subtitle>
+
                         <div className="container">
-
-                            <ProgressBar style = {{marginBottom: 50}}>
-                                <ProgressBar animated striped variant="success" now={percent} key={1} />
-                                <ProgressBar variant="warning" now={100 - percent} key={2} />
-                            </ProgressBar>
-
+                        <ProgressBar style = {{marginBottom: 25}}>
+                            <ProgressBar animated striped variant="success" now={percent} key={1} />
+                            
+                        </ProgressBar>
+                        <Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
                         </div>
+
                         <p></p>
                         <p></p>
                         <Card.Text>
                             {project.longDescription}
                         </Card.Text>
-                        <Button href="#" className="m-1" size="lg" variant="outline-success">Donate</Button>
+                        
                         <p ></p>
                         <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
                         <Button href="#" className="m-3" variant="outline-dark"> Share </Button>

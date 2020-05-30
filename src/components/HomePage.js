@@ -7,14 +7,12 @@ import {
     CardGroup,
     Container
 } from 'react-bootstrap';
-import './styles/Home.css';
 
-
-function Home() {
+function HomePage() {
 
     const sampleData = [
         {
-            "id": "1",
+            "_id": "5ed177e4859e1259c9ebdb04",
             "title": "A",
             "shortDescription": "A_Short_Description",
             "longDescription": "A_long_Description",
@@ -139,55 +137,58 @@ function Home() {
             },
             "tags": ["keywords"]
         }
-    ]
+    ];
 
-    const variant = [
-        'Primary',
-        'Secondary',
-        'Success',
-        'Danger',
-        'Warning',
-        'Info',
-        'Light',
-        'Dark',
-    ]
-    var k = -1;
+    const [projects, setProjects] = React.useState([]);
 
-    let rows = [];
-    
+    const load = () => {
+        console.log('homepage load!');
+        fetch('/api/projects')
+            .then(async result => {
+                const data = await result.json();
+                setProjects(data);
+            })
+            .catch(error => {
+                setProjects(sampleData);
+            });
+    };
+
+
     return (
+        <>
+            <div onLoad={load}>
+                <Container fluid={true} >
 
+                    <div className="row">
 
-        <Container fluid={true} >
+                        {projects.map(obj => {
 
-            <div className="row">
+                            return (
+                                <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
+                                    <Card className="border-info">
+                                        <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
+                                        <Card.Body>
+                                            <Card.Title>{obj.title}</Card.Title>
+                                            <Card.Text>
+                                                {obj.shortDescription}
+                                            </Card.Text>
+                                            {/* <!--  click={() => navToPage(obj._id)} --> */}
+                                            {/* <Button variant="primary" to={'/projects/'+obj._id}>Go somewhere</Button> */}
+                                            <Link to={'/project/' + obj._id} className="button">Go somewhere</Link>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
 
-                {sampleData.map(obj => {
+                            );
 
-                    return (
-                        <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
-                            <Card className="border-info">
-                                <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
-                                <Card.Body>
-                                    <Card.Title>{obj.title}</Card.Title>
-                                    <Card.Text>
-                                        {obj.shortDescription}
-                                    </Card.Text>
-                                    {/* <!--  click={() => navToPage(obj._id)} --> */}
-                                    {/* <Button variant="primary" to={'/projects/'+obj._id}>Go somewhere</Button> */}
-                                    <Link to={'/project/'+obj._id} className="button">Go somewhere</Link>
-                                </Card.Body>
-                            </Card>
-                        </div>
+                        })}
 
-                    );
+                    </div>
 
-                })}
-
+                </Container>
             </div>
-
-        </Container>
+        </>
     );
 }
 
-export default Home;
+export default HomePage;
