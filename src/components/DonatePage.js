@@ -37,7 +37,7 @@ function DonatePage() {
                     <Form.Row>
                         <Col style={{
                             marginTop: '15%',
-                            marginBottom: 30,
+                            marginBottom: 50,
                             textAlign: 'center'
                         }}
                         ><h2 style={{
@@ -52,7 +52,8 @@ function DonatePage() {
                     <Form.Row >
                         <Col style={{
                             width: 'inherit'
-                        }}><Button style={{border: '1px solid #8f8f8f', 
+                        }}><Button style={{
+                                            border: '1px solid #8f8f8f', 
                                             boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $5 </Button>{' '}</Col>
                         <Col><Button style={{border: '1px solid #8f8f8f', 
                                             boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $10 </Button>{' '}</Col>
@@ -70,7 +71,9 @@ function DonatePage() {
             
                     <Form.Row>
                         <Form.Group as={Col} md="6" controlId="validationCustom03" style= {{marginBottom: 30}} >
-                        <Form.Label>Other Amount</Form.Label>
+                        
+                            <Form.Label>Other Amount</Form.Label>
+                            
                         <Form.Control style={{marginBottom: 50}} type="text" placeholder="CAD $"  />
                     </Form.Group>
                     
@@ -86,7 +89,7 @@ function DonatePage() {
                 <Form.Group>
                     <Form.Check
                         required
-                        label="Agree to terms and conditions"
+                        label="Agree to Terms of Use"
                         feedback="You must agree before submitting."
                         />
                 </Form.Group>

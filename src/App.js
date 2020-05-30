@@ -85,8 +85,12 @@ function App() {
                                         UNPOPULATE_NAME
                                     </Button>
                                 </Form>
+                                <Link to="/map">
+                                    Map
+                                </Link>
                             </Nav>
-                            <Nav class='ml-auto'>
+
+                            <Nav className='ml-auto'>
                                 <Greeting/>
                                 <Form>
                                     <LogButton/>

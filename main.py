@@ -37,13 +37,6 @@ def isJwtTokenValid(token):
 @app.route('/api/projects')
 def get_projects():
 
-    # check auth
-    json_data = request.get_json()
-    token = json_data['token']  # Make sure the user has a valid JWT
-    if isJwtTokenValid(token):  # token; else, block further access.
-        Flask.abort(401)
-        return ''
-
     projects = db.projects.find({})
     resulting_array = []
     for project in projects:
@@ -60,13 +53,6 @@ def get_projects():
 
 @app.route('/api/projects/recommended')
 def get_recommended_projects():
-
-    # check auth
-    json_data = request.get_json()
-    token = json_data['token']  # Make sure the user has a valid JWT
-    if isJwtTokenValid(token):  # token; else, block further access.
-        Flask.abort(401)
-        return ''
 
     # get tags
     tags = json_data['tags']
@@ -88,13 +74,6 @@ def get_recommended_projects():
 
 @app.route('/api/project/<id>')
 def get_project(id):
-
-    # check auth
-    # json_data = request.get_json()
-    # token = json_data['token']  # Make sure the user has a valid JWT
-    # if isJwtTokenValid(token):  # token; else, block further access.
-    #     Flask.abort(401)
-    #     return ''
 
     projects = db.projects.find({
         '_id': ObjectId(id) # wrap this part with `ObjectId()`
@@ -168,11 +147,18 @@ def other(path):
     return send_from_directory('./build', path)
 
 if (__name__ == "__main__"):
-    app.run()
     print("Application has loaded!")
+    app.run()
 
 
 
+
+# check auth
+    # json_data = request.get_json()
+    # token = json_data['token']  # Make sure the user has a valid JWT
+    # if isJwtTokenValid(token):  # token; else, block further access.
+    #     Flask.abort(401)
+    #     return ''
 
 
 # """
