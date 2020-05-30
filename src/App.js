@@ -13,15 +13,11 @@ import HomePage from './components/HomePage';
 import ProjectPage from './components/ProjectPage';
 import LoginPage from './components/LoginPage';
 import AboutUsPage from './components/AboutUsPage';
+import DonatePage from './components/DonatePage';
 
 // import bootstrap elements
 import {
-    Navbar,
-    Nav,
-    NavDropdown,
-    Form,
-    FormControl,
-    Button,
+    Navbar
 } from 'react-bootstrap';
 
 // import css
@@ -46,6 +42,9 @@ function App() {
                     </Route>
                     <Route path="/about-us">
                         <AboutUsPage />
+                    </Route>
+                    <Route path="/donate">
+                        <DonatePage />
                     </Route>
                     <Route path="/login">
                         <LoginPage />

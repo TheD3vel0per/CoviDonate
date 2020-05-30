@@ -1,67 +1,121 @@
-import React from 'react';
-import {
-  Button,
-  Container
-} from 'react-bootstrap';
+import React from "react";
+import {  MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
 
-function AboutUsPage() {
+const AboutUsPage = () => {
   return (
-    <>
-      <header class="bg-primary text-center py-5 mb-4">
-        <div class="container">
-          <h1 class="font-weight-light text-white">Meet the Team</h1>
-        </div>
-      </header>
+    <MDBCard className="my-5 px-5 pb-5 text-center">
+        <MDBCardBody>
+          <h2 className="h1-responsive font-weight-bold my-5">
+            Our amazing team
+          </h2>
+          <p className="grey-text w-responsive mx-auto mb-5">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+            error amet numquam iure provident voluptate esse quasi, veritatis
+            totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          </p>
+          <MDBRow>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
+                tag="img"
+                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
+                className="rounded-circle z-depth-1 img-fluid"
+                alt="Sample avatar"
+              />
+              <h5 className="font-weight-bold mt-4 mb-3">Anna Williams</h5>
+              <p className="text-uppercase blue-text">Graphic designer</p>
+              <p className="grey-text">
+                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                consectetur, adipisci sed quia non numquam modi tempora eius.
+              </p>
+              <ul className="list-unstyled mb-0">
+                <a href="#!" className="p-2 fa-lg">
+                <MDBIcon fab icon="facebook-f" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="twitter" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="instagram" className="blue-text" />
+                </a>
+              </ul>
+            </MDBCol>
 
-      <div class="container">
-        <div class="row">
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
+                tag="img"
+                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
+                className="rounded-circle z-depth-1 img-fluid"
+                alt="Sample avatar"
+              />
+              <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
+              <p className="text-uppercase blue-text">Web Developer</p>
+              <p className="grey-text">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                ipsa accusantium doloremque rem laudantium totam aperiam.
+              </p>
+              <ul className="list-unstyled mb-0">
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="instagram" className="blue-text" />
+                </a>
+              </ul>
+            </MDBCol>
 
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-0 shadow">
-              <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
-                <div class="card-body text-center">
-                  <h5 class="card-title mb-0">Team Member</h5>
-                  <div class="card-text text-black-50">Web Developer</div>
-                </div>
-      </div>
-            </div>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
+                tag="img"
+                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                className="rounded-circle z-depth-1 img-fluid"
+                alt="Sample avatar"
+              />
+              <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
+              <p className="text-uppercase blue-text">Photographer</p>
+              <p className="grey-text">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim est fugiat nulla id eu laborum.
+              </p>
+              <ul className="list-unstyled mb-0">
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="instagram" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="dribbble" className="blue-text" />
+                </a>
+              </ul>
+            </MDBCol>
 
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-0 shadow">
-                <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title mb-0">Team Member</h5>
-                    <div class="card-text text-black-50">Web Developer</div>
-                  </div>
-      </div>
-              </div>
-
-              <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-0 shadow">
-                  <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                      <h5 class="card-title mb-0">Team Member</h5>
-                      <div class="card-text text-black-50">Web Developer</div>
-                    </div>
-      </div>
-                </div>
-
-                <div class="col-xl-3 col-md-6 mb-4">
-                  <div class="card border-0 shadow">
-                    <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
-                      <div class="card-body text-center">
-                        <h5 class="card-title mb-0">Team Member</h5>
-                        <div class="card-text text-black-50">Web Developer</div>
-                      </div>
-      </div>
-                  </div>
-                </div>
-
-
-              </div>
-</>
-  )
-
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
+                tag="img"
+                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                className="rounded-circle z-depth-1 img-fluid"
+                alt="Sample avatar"
+              />
+              <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
+              <p className="text-uppercase blue-text">Backend Developer</p>
+              <p className="grey-text">
+                Perspiciatis repellendus ad odit consequuntur, eveniet earum
+                nisi qui consectetur totam officia voluptates perferendis
+                voluptatibus aut.
+              </p>
+              <ul className="list-unstyled mb-0">
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                </a>
+                <a href="#!" className="p-2 fa-lg">
+                  <MDBIcon fab icon="github" className="blue-text" />
+                </a>
+              </ul>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
+  );
 }
 
 export default AboutUsPage;

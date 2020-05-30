@@ -1,15 +1,33 @@
 import React from 'react';
-
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 
 function DonatePage() {
 
     return (
         <>
-            <Button variant="primary"> $5 </Button>{' '}
-            <Button variant="primary"> $10 </Button>{' '}
-            <Button variant="primary"> $20 </Button>{' '}
-            <Button variant="primary"> $50 </Button>{' '}
-            <Button variant="primary"> $100 </Button>{' '}
+
+<Container>
+  <Row>
+    <Col><Button variant="primary"> $5 </Button>{' '}</Col>
+    <Col><Button variant="primary"> $10 </Button>{' '}</Col>
+    <Col><Button variant="primary"> $20 </Button>{' '}</Col>
+  </Row>
+  <Row>
+    <Col><Button variant="primary"> $50 </Button>{' '}</Col>
+    <Col><Button variant="primary"> $100 </Button>{' '}</Col>
+    <Col><Button variant="primary"> Enter Amount </Button>{' '}</Col>
+  </Row>
+
+</Container>
+
+            
+            
+            
+            
+            
         </>
     );
 }

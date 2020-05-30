@@ -148,9 +148,7 @@ function HomePage() {
                 const data = await result.json();
                 setProjects(data);
             })
-            .catch(error => {
-                setProjects(sampleData);
-            });
+            .catch(error => {});
     };
 
 

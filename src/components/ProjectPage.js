@@ -30,7 +30,7 @@ function Project() {
 
     const load = () => {
         // API pulls the projectto display
-        fetch(`http://localhost:5000/api/project/${id}`)
+        fetch(`/api/project/${id}`)
             .then(async (result) => {
                 const data = await result.json();
                 projectSet(data);
