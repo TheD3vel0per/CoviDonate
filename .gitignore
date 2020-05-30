@@ -8,10 +8,6 @@
 # testing
 /coverage
 
-# db
-/server/DBCONNECT.txt
-/server/key.pem
-
 # misc
 .DS_Store
 .env.local
