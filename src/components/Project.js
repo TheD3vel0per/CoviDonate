@@ -4,8 +4,7 @@ import { useParams } from 'react-router';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
 import './styles/Project.css';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import Carousel from 'react-bootstrap/Carousel'
 
 function Project() {
 
@@ -70,17 +69,21 @@ function Project() {
 
                         <Card.Title id="title" style={{
                             textShadow: '0px 1px 3px #454545',
-                            textShadow: '0px 3px 5px #ababab',
+                            textShadow: '0px 3px 7px #454545',
                             textShadow: '0px 5px 10px #e0e0e0',
                             fontSize: '3em'
                         }} >{project.title} </Card.Title>
 
-                        <Card.Subtitle style={{fontSize: '1.2em', marginBottom: 10}}>
+                        <Card.Subtitle style={{fontSize: '1.2em',
+                                                textShadow: '0px 1px 3px #454545',
+                                                textShadow: '0px 3px 7px #454545',
+                                                textShadow: '0px 5px 10px #e0e0e0',
+                                                marginBottom: 25}}>
                             {project.shortDescription}
                         </Card.Subtitle>
                         <div className="container">
 
-                            <ProgressBar>
+                            <ProgressBar style = {{marginBottom: 50}}>
                                 <ProgressBar animated striped variant="success" now={percent} key={1} />
                                 <ProgressBar variant="warning" now={100 - percent} key={2} />
                             </ProgressBar>
@@ -96,12 +99,15 @@ function Project() {
                         <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
                         <Button href="#" className="m-3" variant="outline-dark"> Share </Button>
                         <Button href="#" className="m-3" variant="outline-dark"> Subscribe </Button>
+                    
+                    <div></div>
+                    
                     </Card.Body>
 
                 </Card>
 
-
             </div>
+
         </>
     );
 }

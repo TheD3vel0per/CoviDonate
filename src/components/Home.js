@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Button,
     Card,
@@ -153,11 +154,7 @@ function Home() {
     var k = -1;
 
     let rows = [];
-
-    const navToPage = (id) => {
-        // reroute to `/projects/:id`
-    };
-
+    
     return (
 
 
@@ -176,7 +173,9 @@ function Home() {
                                     <Card.Text>
                                         {obj.shortDescription}
                                     </Card.Text>
-                                    <Button variant="primary" click={() => navToPage(obj._id)}>Go somewhere</Button>
+                                    {/* <!--  click={() => navToPage(obj._id)} --> */}
+                                    {/* <Button variant="primary" to={'/projects/'+obj._id}>Go somewhere</Button> */}
+                                    <Link to={'/project/'+obj._id} className="button">Go somewhere</Link>
                                 </Card.Body>
                             </Card>
                         </div>

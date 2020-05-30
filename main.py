@@ -23,8 +23,8 @@ def get_projects():
         pass
     return jsonify(resulting_array)
 
-
 # VISHAL DO THIS ENDPOINT
+# thanks vishy <3
 @app.route('/api/project/<id>')
 def get_project(id):
     projects = db.projects.find({
@@ -42,12 +42,9 @@ def get_project(id):
         break
     return jsonify(resulting_array[0])
 
-@app.route('/project')
+@app.route('/')
 def root():
-    app.send_static_file('index.html')
-    return 'test'
-
-
+    return send_from_directory('./build', 'index.html')
 
 @app.route('/<path:path>')
 def other(path):
