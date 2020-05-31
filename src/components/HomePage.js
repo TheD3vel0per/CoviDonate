@@ -13,8 +13,7 @@ import sampleData from "../res/projects.json";
 class HomePage extends React.Component {
     
     state = {
-        projects:                 if (process.env.NODE_ENV === "development")
-        sampleData
+        projects: (process.env.NODE_ENV === "development") ? sampleData : []
     };
 
     load = () => {

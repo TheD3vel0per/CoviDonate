@@ -38,7 +38,7 @@ class ProjectPage extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props)
+        console.log(props);
     }
 
     handleSelect = (selectedIndex, e) => {
@@ -64,8 +64,9 @@ class ProjectPage extends React.Component {
     };
 
     loadRecommended = (tags) => {
-        console.log('load recommended')
+        console.log('load recommended');
         fetch('/api/projects/recommended', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
