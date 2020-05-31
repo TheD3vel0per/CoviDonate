@@ -4,6 +4,8 @@ Help fight COVID as a part of your community. Our web app enables you to connect
 
 Developed for [RookieHacks 2020](https://devpost.com/software/covidonate-gy1cxw). Recipient of the **1st Overall Beginner** award.
 
+Check out the app [here](https://covidonate.herokuapp.com/)!
+
 ## Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
