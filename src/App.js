@@ -81,9 +81,16 @@ function App() {
                         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
 
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav>
-                                <Link to="/map">
-                                    Map
+                            <Nav style={{marginLeft: "2em"}}>
+                                <Link to="/map" style={{marginRight: "1em"}}>
+                                    <Button variant='outline-light'>
+                                        Map
+                                    </Button>
+                                </Link>
+                                <Link to="/about-us">
+                                    <Button variant='outline-light'>
+                                        About Us
+                                    </Button>
                                 </Link>
                             </Nav>
 

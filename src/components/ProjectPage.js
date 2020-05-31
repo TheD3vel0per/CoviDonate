@@ -10,24 +10,28 @@ import {
     TwitterIcon
 } from "react-share";
 
+const PROJECT_SCHEME = {
+    "_id": "",
+    "title": "",
+    "shortDescription": "",
+    "longDescription": "",
+    "image": "",
+    "companyName": "",
+    "companyUrl": "",
+    "finance": {
+        "donatedSoFar": "",
+        "donationGoals": ""
+    },
+    "tags": []
+};
+
 class ProjectPage extends React.Component {
+    
+
     state = {
         index: 0,
         recommended: [],
-        project: {
-            "_id": "",
-            "title": "",
-            "shortDescription": "",
-            "longDescription": "",
-            "image": "",
-            "companyName": "",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": []
-        }
+        project: PROJECT_SCHEME
     }
 
 
@@ -53,24 +57,7 @@ class ProjectPage extends React.Component {
                 });
                 this.loadRecommended(data['tags']);
             })
-            .catch(error => {
-                this.setState({
-                    project: {
-                        "id": "100",
-                        "title": "COVID Masks",
-                        "shortDescription": "Project to fund 3D printing of masks",
-                        "longDescription": " Every since the dawn of time, man has worn masks to keep safe from rude people who cough everywhere and protest lockdown. In our project.... GIVE US MONEY!!!!!  Congue eu consequat ac felis donec et odio. Ac auctor augue mauris augue neque gravida in. Consequat semper viverra nam libero justo laoreet. Proin fermentum leo vel orci. Mattis rhoncus urna neque viverra justo nec ultrices. Nibh tellus molestie nunc non blandit massa enim. Libero nunc consequat interdum varius sit amet. Quam adipiscing vitae proin sagittis nisl rhoncus. Euismod lacinia at quis risus sed vulputate. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Sed id semper risus in. Eget dolor morbi non arcu risus quis varius. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing.",
-                        "image": "",
-                        "companyName": "Masks R Us",
-                        "companyUrl": "https://loremipsum.io/",
-                        "finance": {
-                            "donatedSoFar": "10",
-                            "donationGoals": "100"
-                        },
-                        "tags": ["keywords"]
-                    }
-                });
-            });
+            .catch(console.log);
     }
 
     loadRecommended = (tags) => {
@@ -94,9 +81,7 @@ class ProjectPage extends React.Component {
     }
 
     render = () => {
-
         const percent = 100 * this.state.project.finance.donatedSoFar / this.state.project.finance.donationGoals;
-        
         return (
             <>
 
