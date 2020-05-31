@@ -84,12 +84,16 @@ class ProjectPage extends React.Component {
         this.loadProject();
     }
 
+    componentDidMount = () => {
+        this.load();
+    }
+
     render = () => {
         const percent = 100 * this.state.project.finance.donatedSoFar / this.state.project.finance.donationGoals;
         return (
             <>
 
-                <div className="text-center p-5" id="wrapper" onLoad={this.load}>
+                <div className="text-center p-5" id="wrapper" onLoad={this.load()}>
                     <Card style={{ width: '100%' }}>
                         <Card.Img variant="top" src={this.state.project.image} alt="Generic placeholder in case pic fails to load" style={{ maxHeight: '500px', objectFit: 'cover' }} />
 
