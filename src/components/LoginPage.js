@@ -1,4 +1,4 @@
-import React, { useState, Component, Redirect } from "react";
+import React, { useState, Component, Redirect, ReactDOM} from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./styles/Login.css";
 import { usePromiseTracker } from "react-promise-tracker";
@@ -49,7 +49,7 @@ function LoginPage() {
     localStorage.setItem('name', "John Doe")
     localStorage.setItem('email', "john@doe.not")
   
-
+    ReactDOM.render(<Redirect to='/'/>);
   }
 
   const LoadingIndicator = props => {

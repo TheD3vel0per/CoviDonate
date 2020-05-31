@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, send_from_directory, render_template
+from os import environ
 import pymongo
 from bson.objectid import ObjectId
 from jose import jwt
@@ -7,7 +8,7 @@ from base64 import b64encode
 
 app = Flask(__name__, static_url_path='/build')
 #client = pymongo.MongoClient(open('./server/DBCONNECT.txt').read())
-client = pymongo.MongoClient()
+client = pymongo.MongoClient(environ('MONGODB_URI'))
 
 db = client['development']
 private_key = open('./server/key.pem').read()
