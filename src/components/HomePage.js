@@ -8,138 +8,9 @@ import {
     Container
 } from 'react-bootstrap';
 
+import sampleData from "../res/projects.json";
+
 function HomePage() {
-
-
-
-    const sampleData = [
-        {
-            "_id": "5ed177e4859e1259c9ebdb04",
-            "title": "A",
-            "shortDescription": "A_Short_Description",
-            "longDescription": "A_long_Description",
-            "image": "",
-            "companyName": "A_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "2",
-            "title": "B",
-            "shortDescription": "B_Short_Description",
-            "longDescription": "B_Long_Descripton",
-            "image": "",
-            "companyName": "",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "3",
-            "title": "C",
-            "shortDescription": "C_Short_Description",
-            "longDescription": "C_long_Description",
-            "image": "",
-            "companyName": "C_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "4",
-            "title": "D",
-            "shortDescription": "D_Short_Description",
-            "longDescription": "D_long_Description",
-            "image": "",
-            "companyName": "D_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "5",
-            "title": "E",
-            "shortDescription": "E_Short_Description",
-            "longDescription": "E_long_Description",
-            "image": "",
-            "companyName": "E_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "6",
-            "title": "F",
-            "shortDescription": "F_Short_Description",
-            "longDescription": "F_long_Description",
-            "image": "",
-            "companyName": "F_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "7",
-            "title": "F",
-            "shortDescription": "F_Short_Description",
-            "longDescription": "F_long_Description",
-            "image": "",
-            "companyName": "F_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "8",
-            "title": "F",
-            "shortDescription": "F_Short_Description",
-            "longDescription": "F_long_Description",
-            "image": "",
-            "companyName": "F_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        },
-        {
-            "id": "9",
-            "title": "F",
-            "shortDescription": "F_Short_Description",
-            "longDescription": "F_long_Description",
-            "image": "",
-            "companyName": "F_Company_Name",
-            "companyUrl": "",
-            "finance": {
-                "donatedSoFar": "",
-                "donationGoals": ""
-            },
-            "tags": ["keywords"]
-        }
-    ];
 
     const [projects, setProjects] = React.useState(sampleData);
 
@@ -159,16 +30,20 @@ function HomePage() {
         switch (algorithm)
         {
             case "prog-rel":
-                setProjects(projects.sort((project)=>))
+                setProjects(projects.sort((p) => p.finance.donatedSoFar));
                 break;
             case "prog-abs":
+                setProjects(projects.sort((p) => p.finance.donatedSoFar / p.finance.donationGoals));
                 break;
             case "fnd-goal":
+                setProjects(projects.sort((p) => p.finance.donationGoals));
                 break;
             default:
                 console.log("Selected invalid algorithm!!")
                 break;
         }
+
+        // console.log(projects);  // Validate that the projects variable is sorting
     }
 
     return (

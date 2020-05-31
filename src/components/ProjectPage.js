@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Container } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
@@ -36,10 +36,12 @@ function Project() {
         "tags": ["keywords"]
     });
 
+    const [recommended, recommendedSet] = React.useState([]);
+
     // percent to fill the donation progress bar 
     var percent = 100 * project['finance']['donatedSoFar'] / project['finance']['donationGoals'];
 
-    const load = () => {
+    const loadProject = () => {
         // API pulls the projectto display
         fetch(`/api/project/${id}`)
             .then(async (result) => {
@@ -62,6 +64,24 @@ function Project() {
                     "tags": ["keywords"]
                 });
             });
+    };
+
+    const loadRecommended = () => {
+        fetch('/api/projects/recommended', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify([])
+        }).then(async (result) => {
+            recommendedSet(r);
+        }).catch((error) => {
+
+        });
+        
+    };
+
+    const load = () => {
+        loadProject();
     };
 
     const percentage = 0;
@@ -120,6 +140,8 @@ function Project() {
 
                 </Card>
 
+        <Container>
+
         <Carousel activeIndex={index} onSelect={handleSelect}>
             <Carousel.Item>
                 <img
@@ -128,8 +150,10 @@ function Project() {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h3>FIRST RECOMMENDED PROJ</h3>
+                    <p>
+                        shortDescription for first recommended project
+                        </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -140,8 +164,10 @@ function Project() {
                         />
 
                         <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h3>SECOND RECOMMENDED PROJ</h3>
+                            <p>
+                                shortDescription for second recommended project
+                            </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -152,13 +178,15 @@ function Project() {
                         />
 
                         <Carousel.Caption>
-                            <h3>Third slide label</h3>
+                            <h3>THIRD RECOMMENDED PROJ</h3>
                             <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                            shortDescription for third recommended project
                             </p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
+
+                </Container>
 
             </div>
 

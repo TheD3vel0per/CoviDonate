@@ -1,0 +1,128 @@
+[
+    {
+        "_id": "5ed177e4859e1259c9ebdb04",
+        "title": "A",
+        "shortDescription": "A_Short_Description",
+        "longDescription": "A_long_Description",
+        "image": "",
+        "companyName": "A_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 5,
+            "donationGoals": 5000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "2",
+        "title": "B",
+        "shortDescription": "B_Short_Description",
+        "longDescription": "B_Long_Descripton",
+        "image": "",
+        "companyName": "",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 100,
+            "donationGoals": 1000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "3",
+        "title": "C",
+        "shortDescription": "C_Short_Description",
+        "longDescription": "C_long_Description",
+        "image": "",
+        "companyName": "C_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 1,
+            "donationGoals": 10
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "4",
+        "title": "D",
+        "shortDescription": "D_Short_Description",
+        "longDescription": "D_long_Description",
+        "image": "",
+        "companyName": "D_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 108,
+            "donationGoals": 1000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "5",
+        "title": "E",
+        "shortDescription": "E_Short_Description",
+        "longDescription": "E_long_Description",
+        "image": "",
+        "companyName": "E_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 2000,
+            "donationGoals": 50000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "6",
+        "title": "F",
+        "shortDescription": "F_Short_Description",
+        "longDescription": "F_long_Description",
+        "image": "",
+        "companyName": "F_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 600,
+            "donationGoals": 9000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "7",
+        "title": "F",
+        "shortDescription": "F_Short_Description",
+        "longDescription": "F_long_Description",
+        "image": "",
+        "companyName": "F_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 300,
+            "donationGoals": 3000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "8",
+        "title": "F",
+        "shortDescription": "F_Short_Description",
+        "longDescription": "F_long_Description",
+        "image": "",
+        "companyName": "F_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 405,
+            "donationGoals": 6000
+        },
+        "tags": ["keywords"]
+    },
+    {
+        "id": "9",
+        "title": "F",
+        "shortDescription": "F_Short_Description",
+        "longDescription": "F_long_Description",
+        "image": "",
+        "companyName": "F_Company_Name",
+        "companyUrl": "",
+        "finance": {
+            "donatedSoFar": 700,
+            "donationGoals": 7000
+        },
+        "tags": ["keywords"]
+    }
+]
