@@ -21,7 +21,9 @@ class HomePage extends React.Component {
         fetch('/api/projects')
             .then(async (result) => {
                 const data = await result.json();
-                this.setState((data) => ({projects: data}));
+                this.setState({
+                    projects: data
+                });
             })
             .catch(error => {});
     };
@@ -66,10 +68,10 @@ class HomePage extends React.Component {
                         <div>
                             <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={this.sort_cards}>
                                 <option selected disabled>Select Sorting Method</option>
-                                <option value="prog-rel"> Progress (Percent)</option>
-                                <option value="prog-abs"> Progress ($ From Goal)</option>
-                                <option value="fnd-goal"> Fundraising Goal</option>
-                                <option value="tot-fnds"> Total Funds Raised </option>
+                                <option value="prog-rel">  Progress (%)             </option>
+                                <option value="prog-abs">  Progress ($ From Goal)   </option>
+                                <option value="fnd-goal">  Fundraising Goal         </option>
+                                <option value="tot-fnds">  Total Funds Raised       </option>
                                 <option disabled>Project Age</option>
                                 <option disabled>Remaining Project Time</option>
                             </select>
