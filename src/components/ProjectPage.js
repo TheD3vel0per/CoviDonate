@@ -10,6 +10,7 @@ import {
     TwitterIcon
 } from "react-share";
 
+import sampleProjects from "../res/projects.json";
 const PROJECT_SCHEME = {
     "_id": "",
     "title": "",
@@ -56,10 +57,13 @@ class ProjectPage extends React.Component {
                 });
                 this.loadRecommended(data['tags']);
             })
-            .catch(console.log);
-    }
+            .catch((err)=>{
+                this.setState({project: sampleProjects.find((e) => e._id === id)});
+            });
+    };
 
     loadRecommended = (tags) => {
+        console.log('load recommended')
         fetch('/api/projects/recommended', {
             headers: {
                 'Content-Type': 'application/json'

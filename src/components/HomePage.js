@@ -72,7 +72,7 @@ class HomePage extends React.Component {
                         <div>
                             <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={this.sort_cards}>
                                 <option selected disabled>Select Sorting Method</option>
-                                <option value="prog-rel">  Progress (%)             </option>
+                                <option value="prog-rel">  Progress (% of Goal)     </option>
                                 <option value="prog-abs">  Progress ($ From Goal)   </option>
                                 <option value="fnd-goal">  Fundraising Goal         </option>
                                 <option value="tot-fnds">  Total Funds Raised       </option>
@@ -94,7 +94,7 @@ class HomePage extends React.Component {
                                                 </Card.Text>
                                                 {/* <!--  click={() => navToPage(obj._id)} --> */}
                                                 {/* <Button variant="primary" to={'/projects/'+obj._id}>Go somewhere</Button> */}
-                                                <Link to={'/project/' + obj._id} className="button">Go somewhere</Link>
+                                                <Link to={'/project/' + obj._id} className="button">Project Page</Link>
                                             </Card.Body>
                                         </Card>
                                     </div>
