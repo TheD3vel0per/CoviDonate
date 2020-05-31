@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "./styles/aboutus.css";
 
 class AboutUsPage extends React.Component {
   render (){
@@ -11,7 +12,7 @@ class AboutUsPage extends React.Component {
             <h5 className="section-title h1">OUR TEAM</h5>
             <div className="row">
               {/* Team member */}
-              <div className="col-xs-12 col-sm-6 col-md-4">
+              <div className=" col-sm-6 col-md-4">
                 <div className="image-flip">
                   <div className="mainflip flip-0">
                     <div className="frontside">

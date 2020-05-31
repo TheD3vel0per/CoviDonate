@@ -16,7 +16,7 @@ class HomePage extends React.Component {
         projects: sampleData
     };
 
-    load() {
+    load = () => {
         console.log('homepage load!');
         fetch('/api/projects')
             .then((result) => result.json())
@@ -29,7 +29,7 @@ class HomePage extends React.Component {
             .catch(console.log);
     };
 
-    handleButtonClick() {
+    handleButtonClick = () => {
       this.render();
     }
     
