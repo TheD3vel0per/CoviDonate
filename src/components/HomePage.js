@@ -19,8 +19,8 @@ class HomePage extends React.Component {
     load() {
         console.log('homepage load!');
         fetch('/api/projects')
-            .then(async (result) => {
-                const data = await result.json();
+            .then((result) => result.json())
+            .then((data) => {
                 console.log(data);
                 this.setState({
                     projects: data
