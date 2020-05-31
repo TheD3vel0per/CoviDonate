@@ -45,7 +45,6 @@ class ProjectPage extends React.Component {
     };
 
     loadProject = () => {
-        console.log(this.props);
         const id = this.props.match.params.id;
 
         // API pulls the projectto display

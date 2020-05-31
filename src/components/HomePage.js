@@ -26,7 +26,10 @@ class HomePage extends React.Component {
                     projects: data
                 });
             })
-            .catch(console.log);
+            .catch((err) => {
+                console.log(err);
+                this.setState({projects: sampleData});
+            });
     };
 
     handleButtonClick = () => {
@@ -51,7 +54,7 @@ class HomePage extends React.Component {
                 projects.sort((p1, p2) => p2.finance.donationGoals - p1.finance.donationGoals);
                 break;
             case "tot-fnds":  // The total funds raised thus far; biggest first
-                projects.sort((p1, p2) => p2.finance.donatedSoFar - p1.finance.donationGoals);
+                projects.sort((p1, p2) => p2.finance.donatedSoFar - p1.finance.donatedSoFar);
             default:
                 console.log("Selected invalid algorithm!!")
                 break;
