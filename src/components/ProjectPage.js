@@ -8,14 +8,14 @@ import { Link } from 'react-router-dom';
 import {
     FacebookIcon,
     TwitterIcon
-  } from "react-share";
+} from "react-share";
 
 function Project() {
 
     const [index, setIndex] = React.useState(0);
 
     const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
+        setIndex(selectedIndex);
     };
 
     const { id } = useParams();
@@ -47,6 +47,7 @@ function Project() {
             .then(async (result) => {
                 const data = await result.json();
                 projectSet(data);
+                loadRecommended(data['tags']);
             })
             .catch(error => {
                 projectSet({
@@ -66,18 +67,21 @@ function Project() {
             });
     };
 
-    const loadRecommended = () => {
+    const loadRecommended = (tags) => {
         fetch('/api/projects/recommended', {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify([])
+            body: JSON.stringify({
+                tags: tags
+            })
         }).then(async (result) => {
-            recommendedSet(r);
+            const data = await result.json();
+            recommendedSet(data);
         }).catch((error) => {
 
         });
-        
+
     };
 
     const load = () => {
@@ -85,7 +89,7 @@ function Project() {
     };
 
     const percentage = 0;
-    
+
 
     // render the following everytime the app is launched
     return (
@@ -104,22 +108,24 @@ function Project() {
                             fontSize: '3em'
                         }} >{project.title} </Card.Title>
 
-                        <Card.Subtitle style={{fontSize: '1.2em',
-                                                textShadow: '0px 1px 3px #454545',
-                                                textShadow: '0px 3px 7px #454545',
-                                                textShadow: '0px 5px 10px #e0e0e0',
-                                                marginBottom: 45}}>
+                        <Card.Subtitle style={{
+                            fontSize: '1.2em',
+                            textShadow: '0px 1px 3px #454545',
+                            textShadow: '0px 3px 7px #454545',
+                            textShadow: '0px 5px 10px #e0e0e0',
+                            marginBottom: 45
+                        }}>
                             {project.shortDescription}
                         </Card.Subtitle>
 
                         <div className="container">
-                        <ProgressBar style = {{marginBottom: 25}}>
-                            <ProgressBar animated striped variant="success" now={percent} key={1} />
-                            
-                        </ProgressBar>
-                        {/*<Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
+                            <ProgressBar style={{ marginBottom: 25 }}>
+                                <ProgressBar animated striped variant="success" now={percent} key={1} />
+
+                            </ProgressBar>
+                            {/*<Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
                         */}
-                        <Link to="/donate" variant="outline-success" className="button m-1" >Donate</Link>
+                            <Link to="/donate" variant="outline-success" className="button m-1" >Donate</Link>
                         </div>
 
                         <p></p>
@@ -127,64 +133,40 @@ function Project() {
                         <Card.Text>
                             {project.longDescription}
                         </Card.Text>
-                        
+
                         <p ></p>
                         <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
                         {/* NOTE TO NOAH, UNCOMMENT AND TEST THE CODE BELOW*/}
                         {/*  <FacebookIcon url={window.location.href} size={32}/> */}
-                        <TwitterIcon size={32}/>
-                    
-                    <div></div>
-                    
+                        <TwitterIcon size={32} />
+
+                        <div></div>
+
                     </Card.Body>
 
                 </Card>
 
-        <Container>
+                <Container>
 
-        <Carousel activeIndex={index} onSelect={handleSelect}>
-            <Carousel.Item>
-                <img
-                            className="d-block w-100"
-                            src="/images/people-in-water.jpg"
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>FIRST RECOMMENDED PROJ</h3>
-                    <p>
-                        shortDescription for first recommended project
-                        </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="/images/people-in-water.jpg"
-                            alt="Second slide"
-                        />
+                    <h4 style={{
+                        marginTop: 30
+                    }}>Similar projects</h4>
 
-                        <Carousel.Caption>
-                            <h3>SECOND RECOMMENDED PROJ</h3>
-                            <p>
-                                shortDescription for second recommended project
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="/images/people-in-water.jpg"
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>THIRD RECOMMENDED PROJ</h3>
-                            <p>
-                            shortDescription for third recommended project
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                    <Carousel activeIndex={index} onSelect={handleSelect}>
+                        {recommended.map(pj => (
+                            <Carousel.Item>
+                                <img
+                                    className="d-block w-100"
+                                    src={pj.image}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>{pj.title}</h3>
+                                    <p>{pj.shortDescription}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
 
                 </Container>
 
