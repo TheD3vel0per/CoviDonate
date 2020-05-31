@@ -11,6 +11,7 @@ import {
 import sampleData from "../res/projects.json";
 
 class HomePage extends React.Component {
+    
     state = {
         projects: sampleData
     };
@@ -18,7 +19,7 @@ class HomePage extends React.Component {
     load() {
         console.log('homepage load!');
         fetch('/api/projects')
-            .then(async result => {
+            .then(async (result) => {
                 const data = await result.json();
                 this.setState((data) => ({projects: data}));
             })
@@ -35,17 +36,19 @@ class HomePage extends React.Component {
 
         switch (algorithm)
         {
-            case "prog-abs":
-                projects.sort((p1, p2) => 
-                    p2.finance.donatedSoFar - p1.finance.donatedSoFar);
+            case "prog-abs":  // The absolute difference between the goal and the currently raised funds
+                projects.sort((p1, p2) =>   // i.e. "The amount to go" - smallest first.
+                    (p1.finance.donationGoals - p1.finance.donatedSoFar) - (p2.finance.donationGoals - p2.finance.donatedSoFar));
                 break;
-            case "prog-rel":
+            case "prog-rel":  // The percentage of the goal raised; biggest first
                 projects.sort((p1, p2) => 
                     p2.finance.donatedSoFar / p2.finance.donationGoals - p1.finance.donatedSoFar / p1.finance.donationGoals);
                 break;
-            case "fnd-goal":
+            case "fnd-goal":  // The fundraising goal; biggest first
                 projects.sort((p1, p2) => p2.finance.donationGoals - p1.finance.donationGoals);
                 break;
+            case "tot-fnds":  // The total funds raised thus far; biggest first
+                projects.sort((p1, p2) => p2.finance.donatedSoFar - p1.finance.donationGoals);
             default:
                 console.log("Selected invalid algorithm!!")
                 break;
@@ -63,10 +66,10 @@ class HomePage extends React.Component {
                         <div>
                             <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={this.sort_cards}>
                                 <option selected disabled>Select Sorting Method</option>
-                                <option disabled>Popularity (Traffic)</option>
-                                <option value="prog-rel"> Progress (Relative)</option>
-                                <option value="prog-abs"> Progress (Absolute)</option>
+                                <option value="prog-rel"> Progress (Percent)</option>
+                                <option value="prog-abs"> Progress ($ From Goal)</option>
                                 <option value="fnd-goal"> Fundraising Goal</option>
+                                <option value="tot-fnds"> Total Funds Raised </option>
                                 <option disabled>Project Age</option>
                                 <option disabled>Remaining Project Time</option>
                             </select>
@@ -99,93 +102,8 @@ class HomePage extends React.Component {
                     </Container>
                 </div>
             </>
-        );
+            );
+        }
     }
-  }
-
-// function HomePage() {
-
-//     const [projects, setProjects] = React.useState(sampleData);
-
-//     const load = () => {
-//         console.log('homepage load!');
-//         fetch('/api/projects')
-//             .then(async result => {
-//                 const data = await result.json();
-//                 setProjects(data);
-//             })
-//             .catch(error => {});
-//     };
-
-//     const sort_cards = (event) =>
-//     {
-//         const algorithm = event.target.value;  // The 'value' property of the selected option
-        
-//         switch (algorithm)
-//         {
-//             case "prog-abs":
-//                 setProjects(projects.sort((p1, p2) => 
-//                     p2.finance.donatedSoFar - p1.finance.donatedSoFar));
-//                 break;
-//             case "prog-rel":
-//                 setProjects(projects.sort((p1, p2) => 
-//                     p2.finance.donatedSoFar / p2.finance.donationGoals - p1.finance.donatedSoFar / p1.finance.donationGoals));
-//                 break;
-//             case "fnd-goal":
-//                 setProjects(projects.sort((p1, p2) => p2.finance.donationGoals - p1.finance.donationGoals));
-//                 break;
-//             default:
-//                 console.log("Selected invalid algorithm!!")
-//                 break;
-//         }
-
-//         console.log(projects);  // Validate that the projects variable is sorting
-//     }
-
-//     return (
-//         <>
-//             <div onLoad={load}>
-//                 <Container fluid={true} >
-//                     <div>
-//                         <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={sort_cards}>
-//                             <option selected disabled>Select Sorting Method</option>
-//                             <option disabled>Popularity (Traffic)</option>
-//                             <option value="prog-rel"> Progress (Relative)</option>
-//                             <option value="prog-abs"> Progress (Absolute)</option>
-//                             <option value="fnd-goal"> Fundraising Goal</option>
-//                             <option disabled>Project Age</option>
-//                             <option disabled>Remaining Project Time</option>
-//                         </select>
-//                     </div>
-//                     <hr/>
-//                     <div className="row">
-//                         {projects.map(obj => {
-//                             return (
-//                                 <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
-//                                     <Card className="border-info">
-//                                         <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" />
-//                                         <Card.Body>
-//                                             <Card.Title>{obj.title}</Card.Title>
-//                                             <Card.Text>
-//                                                 {obj.shortDescription}
-//                                             </Card.Text>
-//                                             {/* <!--  click={() => navToPage(obj._id)} --> */}
-//                                             {/* <Button variant="primary" to={'/projects/'+obj._id}>Go somewhere</Button> */}
-//                                             <Link to={'/project/' + obj._id} className="button">Go somewhere</Link>
-//                                         </Card.Body>
-//                                     </Card>
-//                                 </div>
-
-//                             );
-
-//                         })}
-
-//                     </div>
-
-//                 </Container>
-//             </div>
-//         </>
-//     );
-// }
 
 export default HomePage;

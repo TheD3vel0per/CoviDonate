@@ -98,27 +98,13 @@ function App() {
                 </div>
 
                 <Switch>
-                    <Route path="/project/:id">
-                        <ProjectPage />
-                    </Route>
-                    <Route path="/about-us">
-                        <AboutUsPage />
-                    </Route>
-                    <Route path="/donate">
-                        <DonatePage />
-                    </Route>
-                    <Route path="/map">
-                        <MapPage />
-                    </Route>
-                    <Route path="/city">
-                        <CityPage />
-                    </Route>
-                    <Route path="/login">
-                        <LoginPage />
-                    </Route>
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
+                    <Route path="/project/:id" component={ProjectPage}></Route>
+                    <Route path="/about-us" component={AboutUsPage}></Route>
+                    <Route path="/donate" component={DonatePage}></Route>
+                    <Route path="/map" component={MapPage}></Route>
+                    <Route path="/city" component={CityPage}></Route>
+                    <Route path="/login" component={LoginPage}></Route>
+                    <Route path="/" component={HomePage}></Route>
                 </Switch>
             </BrowserRouter>
         </div>

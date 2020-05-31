@@ -1,30 +1,28 @@
 import React, { useState, Component} from "react";
+import  { Redirect } from 'react-router-dom';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./styles/Login.css";
 import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from 'react-promise-tracker';
 import Loader from 'react-loader-spinner';
-import { useHistory } from 'react-router'
 
-function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const history = useHistory();
-
-  if (localStorage.getItem('name'))
-    history.push("/");
-
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+class LoginPage extends React.Component {
+  state = {
+    email: "",
+    password: ""
   }
 
-  const handleSubmit = async (event) => {
+  validateForm = () => {
+    return this.state.length > 0 && this.state.password.length > 0;
+  }
+
+  handleSubmit = async (event) => {
     event.preventDefault();
 
     const req = new Request('/api/auth');
     req.json({
-      email: email,
-      password: password
+      email: this.state.email,
+      password: this.state.password
     });
     fetch('/api/auth', req)
       .then(async (result) => {
@@ -43,9 +41,9 @@ function LoginPage() {
       .catch((error) => {
         alert('Login failed!');
       });
-  };
+  }
 
-  const handleSubmitDummy = (event) => {
+  handleSubmitDummy = (event) => {
     console.log('DEBUG: Using dummy tokens...');
           
     localStorage.setItem('_id', "DUMMY_ID12345");
@@ -53,7 +51,7 @@ function LoginPage() {
     localStorage.setItem('email', "john@doe.nut");
   }
 
-  const LoadingIndicator = props => {
+  LoadingIndicator = (props) => {
     const { promiseInProgress } = usePromiseTracker();
 
     return promiseInProgress &&
@@ -73,34 +71,40 @@ function LoginPage() {
           </div>
         </>
       );
-  };
+  }
 
-  return (
-    <div className="Login">
-      <form onSubmit={handleSubmitDummy}>
-        <FormGroup controlId="email" bsSize="large">
-          <label>Email</label>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
-        </FormGroup>
-        <FormGroup controlId="password" bsSize="large">
-          <label>Password</label>
-          <FormControl
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-          />
-        </FormGroup>
-        <Button block bsSize="large" disabled={!validateForm()} type="submit">
-          Login
-        </Button>
-      </form>
-    </div>
-  );
+  render()
+  {
+    if (localStorage.getItem('name'))
+      return <Redirect to="/"/>
+    else
+      return (
+        <div className="Login">
+          <form onSubmit={this.handleSubmitDummy}>
+            <FormGroup controlId="email" bsSize="large">
+              <label>Email</label>
+              <FormControl
+                autoFocus
+                type="email"
+                value={this.state.email}
+                onChange={e => this.setState({email: e.target.value})}
+              />
+            </FormGroup>
+            <FormGroup controlId="password" bsSize="large">
+              <label>Password</label>
+              <FormControl
+                value={this.state.password}
+                onChange={e => this.setState({password: e.target.value})}
+                type="password"
+              />
+            </FormGroup>
+            <Button block bsSize="large" disabled={!this.validateForm} type="submit">
+              Login
+            </Button>
+          </form>
+        </div>
+      );
+  }
 }
 
 export default LoginPage;
