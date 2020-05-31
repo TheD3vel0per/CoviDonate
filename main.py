@@ -52,7 +52,7 @@ def get_projects():
     return jsonify(resulting_array)
 
 
-@app.route('/api/projects/recommended')
+@app.route('/api/projects/recommended', methods=['POST'])
 def get_recommended_projects():
 
     # get tags
