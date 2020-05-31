@@ -27,7 +27,6 @@ def isJwtTokenValid(token):
             JWTClaimsError (Invalid Claims)    
         """
         return False
-    
     return True
 
 
