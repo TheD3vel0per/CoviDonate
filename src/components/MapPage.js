@@ -109,6 +109,7 @@ class MapPage extends React.Component {
           <p>Latitude:  {this.state.coords.latitude} </p>
           <p>Country:   {this.state.location.country} </p>
           <p>Locality:  {this.state.location.locality} </p>
+          <p>See projects in your area below!</p>
         </div>
         <div onLoad={this.load()}>
           <Container fluid={true} >
