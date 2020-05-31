@@ -57,6 +57,7 @@ def get_projects():
 def get_recommended_projects():
 
     # get tags
+    json_data = request.get_json()
     tags = json_data['tags']
     query = { 'tags': { '$all': tags } }
 

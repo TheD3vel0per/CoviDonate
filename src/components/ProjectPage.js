@@ -3,15 +3,20 @@ import { Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Image from 'react-bootstrap/Image'
-import Carousel from 'react-bootstrap/Carousel'
-
+import Carousel from 'react-bootstrap/Carousel';
+import { Link } from 'react-router-dom';
 import {
     FacebookIcon,
     TwitterIcon
   } from "react-share";
 
-
 function Project() {
+
+    const [index, setIndex] = React.useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };
 
     const { id } = useParams();
 
@@ -92,7 +97,9 @@ function Project() {
                             <ProgressBar animated striped variant="success" now={percent} key={1} />
                             
                         </ProgressBar>
-                        <Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
+                        {/*<Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
+                        */}
+                        <Link to="/donate" variant="outline-success" className="button m-1" >Donate</Link>
                         </div>
 
                         <p></p>
@@ -112,6 +119,47 @@ function Project() {
                     </Card.Body>
 
                 </Card>
+
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+                <img
+                            className="d-block w-100"
+                            src="/images/people-in-water.jpg"
+                            alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/images/people-in-water.jpg"
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/images/people-in-water.jpg"
+          alt="Third slide"
+        />
+
+        <Carousel.Caption>
+          <h3>Third slide label</h3>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>          
+                
 
             </div>
 

@@ -16,12 +16,13 @@ function DonatePage() {
 
     const [validated, setValidated] = React.useState(false);
 
-    const checkRadio = (event) => {
-        alert("Other");
-
-        document.getElementById("amount").style.visibility = "visible";    
-                      
+    const hideRadio = (event) => {
+        document.getElementById("amount").style.visibility = "hidden";
     };
+
+    const showRadio = (event) => {
+        document.getElementById("amount").style.visibility = "visible";
+        };
 
     const handleSubmit = (event) => {
       const form = event.currentTarget;
@@ -50,8 +51,8 @@ function DonatePage() {
             <Container>
                     <Form.Row>
                         <Col style={{
-                            marginTop: '15%',
-                            marginBottom: 50,
+                            marginTop: '20%',
+                            marginBottom: '5%',
                             textAlign: 'center'
                         }}
                         ><h2 style={{
@@ -59,48 +60,33 @@ function DonatePage() {
                             color: '#141114',
                             fontWeight: 'bold',
                             fontSize: '4em',
-                            textShadow: '5px 8px 10px #696969',                       
+                            textShadow: '4px 4px 5px gray'   
                         }}>Donate Now</h2>
                         </Col>
                     </Form.Row>
-                    {/* 
-                    <Form.Row >
-                        <Col style={{
-                            width: 'inherit'
-                        }}><Button style={{
-                                            border: '1px solid #8f8f8f', 
-                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $5 </Button>{' '}</Col>
-                        <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $10 </Button>{' '}</Col>
-                        <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $20 </Button>{' '}</Col>
-                        <Col><Button style={{border: '1px solid #8f8f8f', 
-                                            boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $50 </Button>{' '}</Col>
-                        <Col style={{
-                            marginBottom: '10%'
-                        }}><Button style={{border: '1px solid #8f8f8f', 
-                        boxShadow: '2px 5px 10px #888888'}} block variant="primary"> $100 </Button>{' '}</Col>
 
-                    </Form.Row> 
-                    */}
                     <p></p>
             
             <ToggleButtonGroup type="radio" name="options" defaultValue={1}>
-                 <ToggleButton id ="1" value={1}>$5</ToggleButton>
-                <ToggleButton id ="2" value={2}>$10</ToggleButton>
-                <ToggleButton id ="3" value={3}>$20</ToggleButton>
-                <ToggleButton id ="4" value={4}>$50</ToggleButton>
-                <ToggleButton id ="5" value={5}>$100</ToggleButton>
-                <ToggleButton id ="6" value={6} onClick={checkRadio}>Other</ToggleButton>
+                 <ToggleButton variant="outline-dark" id ="1" value={1} onChange={hideRadio} >$5</ToggleButton>
+                <ToggleButton variant="outline-dark" id ="2" value={2} onChange={hideRadio} >$10</ToggleButton>
+                <ToggleButton variant="outline-dark" id ="3" value={3} onChange={hideRadio} >$20</ToggleButton>
+                <ToggleButton variant="outline-dark" id ="4" value={4} onChange={hideRadio} >$50</ToggleButton>
+                <ToggleButton variant="outline-dark" id ="5" value={5} onChange={hideRadio}>$100</ToggleButton>
+                <ToggleButton variant="outline-dark" id ="6" value={6} onClick={showRadio}>Other</ToggleButton>
             </ToggleButtonGroup>
            
             <Form.Row>
-                    <Form.Group as={Col} md="12" controlId="validationCustom03" style= {{marginBottom: 30 }} >
-                    {/*<Form.Label>Other Amount</Form.Label>*/}
-                        <Form.Control id = "amount"
-                                    style={{marginBottom: 50,
+                    <Form.Group as={Col} md="12" controlId="validationCustom03" 
+                                                style= {{marginBottom: 30 }} >
+                    
+                        <Form.Control 
+                                    id = "amount"
+                                    style={{marginBottom: '5%',
+                                        marginTop: '5%',
                                                 visibility: 'hidden'}} 
-                                    type="text" placeholder="CAD $"  />
+                                    type="number" placeholder="CAD $"  />
+                        
                     </Form.Group>
             </Form.Row>
             <Form.Group>
@@ -111,7 +97,7 @@ function DonatePage() {
                         />
             </Form.Group>
 
-                <Button size="lg" type="number submit"> Donate </Button>
+                <Button variant="success" size="lg" type="number submit"> Donate </Button>
             
             </Container>
         </Form>

@@ -1,4 +1,4 @@
-import React, { useState, Component, Redirect, ReactDOM} from "react";
+import React, { useState, Component} from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./styles/Login.css";
 import { usePromiseTracker } from "react-promise-tracker";
@@ -9,6 +9,10 @@ import { useHistory } from 'react-router'
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  if (localStorage.getItem('name'))
+    history.push("/");
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -34,7 +38,6 @@ function LoginPage() {
           localStorage.setItem('email', tokenData['email']);
         } else {
           alert('Login failed!')
-          
         }
       })
       .catch((error) => {
@@ -43,13 +46,11 @@ function LoginPage() {
   };
 
   const handleSubmitDummy = (event) => {
-    console.log('DEBUG: Using dummy tokens...')
+    console.log('DEBUG: Using dummy tokens...');
           
-    localStorage.setItem('_id', "DUMMY_ID")
-    localStorage.setItem('name', "John Doe")
-    localStorage.setItem('email', "john@doe.not")
-  
-    ReactDOM.render(<Redirect to='/'/>);
+    localStorage.setItem('_id', "DUMMY_ID12345");
+    localStorage.setItem('name', "John Doe");
+    localStorage.setItem('email', "john@doe.nut");
   }
 
   const LoadingIndicator = props => {

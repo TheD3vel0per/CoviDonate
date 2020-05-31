@@ -5,8 +5,7 @@ import {
     Switch,
     Route,
     Link,
-    useHistory,
-    Redirect
+    useHistory
 } from 'react-router-dom';
 
 // import components
@@ -29,10 +28,14 @@ import './navbar.css'
 import './components/styles/App.css';
 
 function App() {
+    const history = useHistory();
+
     const logout = () => {
         localStorage.removeItem('_id');
         localStorage.removeItem('name');
         localStorage.removeItem('email');
+    
+        history.push("/");
     };
 
 

@@ -22,7 +22,7 @@ function MapPage() {
     <div onLoad={load()}>
       <h4>Using geolocation JavaScript API in React</h4>
       <p>Longitude: {coords.longitude}</p>
-      <p>Latitude: {coords.latitude} </p>
+      <p>Latitude:  {coords.latitude} </p>
     </div>
   );
 }

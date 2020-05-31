@@ -151,16 +151,41 @@ function HomePage() {
             .catch(error => {});
     };
 
+    const sort_cards = (event) =>
+    {
+        const algorithm = event.target.value;  // The 'value' property of the selected option
+        switch (algorithm)
+        {
+            case "prog-rel":
+                break;
+            case "prog-abs":
+                break;
+            case "fnd-goal":
+                break;
+            default:
+                console.log("Selected invalid algorithm!!")
+                break;
+        }
+    }
 
     return (
         <>
             <div onLoad={load}>
                 <Container fluid={true} >
-
+                    <div>
+                        <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={sort_cards}>
+                            <option selected disabled>Select Sorting Method</option>
+                            <option disabled>Popularity (Traffic)</option>
+                            <option value="prog-rel"> Progress (Relative)</option>
+                            <option value="prog-abs"> Progress (Absolute)</option>
+                            <option value="fnd-goal"> Fundraising Goal</option>
+                            <option disabled>Project Age</option>
+                            <option disabled>Remaining Project Time</option>
+                        </select>
+                    </div>
+                    <hr/>
                     <div className="row">
-
                         {projects.map(obj => {
-
                             return (
                                 <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
                                     <Card className="border-info">
