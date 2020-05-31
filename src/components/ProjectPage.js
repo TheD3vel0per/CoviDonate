@@ -91,7 +91,7 @@ class ProjectPage extends React.Component {
 
                 <div className="text-center p-5" id="wrapper" onLoad={this.load}>
                     <Card style={{ width: '100%' }}>
-                        <Card.Img variant="top" src="/images/people-in-water.jpg" alt="Generic placeholder in case pic fails to load" style={{ maxHeight: '500px', objectFit: 'cover' }} />
+                        <Card.Img variant="top" src={this.state.project.image} alt="Generic placeholder in case pic fails to load" style={{ maxHeight: '500px', objectFit: 'cover' }} />
 
                         <Card.Body>
 
@@ -145,7 +145,7 @@ class ProjectPage extends React.Component {
                                 <Carousel.Item>
                                     <img
                                         className="d-block w-100"
-                                        src="/images/people-in-water.jpg"
+                                        src={pj.image}
                                         alt="First slide"
                                     />
                                     <Carousel.Caption>

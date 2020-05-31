@@ -1,0 +1,54 @@
+[
+    {
+        "title": "Arts Organizations for Covid (Vancouver)",
+        "shortDescription": "Arts Club Theatre Company, which temporarily closed its doors on March 17, has announced that it’s repurposing its spaces at the BMO Theatre Centre to aid in the COVID-19 response efforts.",
+        "longDescription": "A_long_Description",
+        "image": "https://images.glaciermedia.ca/polopoly_fs/1.24131573.1588889335!/fileImage/httpImage/image.jpg_gen/derivatives/landscape_804/vancouver-opera-covid-19.jpg",
+        "companyName": "Vancouver Opera",
+        "companyUrl": "https://www.burnabynow.com/entertainment/arts-club-vancouver-opera-join-the-covid-19-response-effort-1.24131572",
+        "finance": {
+            "donatedSoFar": 5,
+            "donationGoals": 5000
+        },
+        "tags": ["Vancouver", "British Columbia", "CA"]
+    },
+    {
+        "title": "Rapid Repurposing of Drugs for COVID-19",
+        "shortDescription": "With health officials and political leaders cautioning Canadians a vaccine against COVID-19 is months — if not at least a year — away, one Vancouver-based initiative is tapping artificial intelligence to repurpose available drugs that could potentially treat pandemic patients.",
+        "longDescription": "The project, Rapid Repurposing of Drugs for COVID-19, led by Variational AI Inc. is among the early recipients of millions of dollars in funding the Digital Technology Supercluster is committing to combatting the pandemic. The Vancouver-based supercluster revealed Monday (April 20) it’s earmarked $60 million from its $153 million budget to develop partnerships across its networks to address issues brought on by the pandemic.",
+        "image": "https://biv.com/sites/default/files/styles/media_image/public/2018-11/supercluster.jpg",
+        "companyName": "Variational AI Inc.",
+        "companyUrl": "https://biv.com/article/2020/04/vancouvers-tech-supercluster-commits-60m-covid-19-fight",
+        "finance": {
+            "donatedSoFar": 90000000,
+            "donationGoals": 90000000
+        },
+        "tags": ["Vancouver", "British Columbia", "CA"]
+    },
+    {
+        "title": "UNICEF-benefiting colouring posters and workbook",
+        "shortDescription": "Vancouver-based Very Polite Agency has partnered with local and international artists to create colouring posters and a workbook that benefits UNICEF and the fight against COVID-19.",
+        "longDescription": "The downloadable images are available for free, or by donation amounts of $10, $30 and $50, with 100 per cent of the proceeds going to the UNICEF Coronavirus Relief Fund. “These are activities for all ages and something to do at home while social distancing,” Dylan Rekert, the vice-president of creative at Very Polite Agency, said in a news release. “It’s incredible how even in these extraordinary circumstances, we had no difficulty gathering artists’ submissions from around the globe — everyone we contacted was keen to support the cause and willing to invest time in putting this all together.”",
+        "image": "https://postmediavancouversun2.files.wordpress.com/2020/04/255464443-0425_it_list_unicef-w.jpg?quality=100&strip=all&w=564",
+        "companyName": "Very Polite Agency.",
+        "companyUrl": "https://vancouversun.com/entertainment/books/the-it-list-get-creative-while-supporting-unicef-efforts-to-fight-covid-19/",
+        "finance": {
+            "donatedSoFar": 90000,
+            "donationGoals": 2000000
+        },
+        "tags": ["Vancouver", "British Columbia", "CA"]
+    },
+    {
+        "title": "BC COVID-19 Modelling Group",
+        "shortDescription": "A group of 70+ people was convened by Dan Coombs (UBC) and Caroline Colijn (SFU), with support from the Pacific Institute for the Mathematical Sciences (PIMS).",
+        "longDescription": "The downloadable images are available for free, or by donation amounts of $10, $30 and $50, with 100 per cent of the proceeds going to the UNICEF Coronavirus Relief Fund. “These are activities for all ages and something to do at home while social distancing,” Dylan Rekert, the vice-president of creative at Very Polite Agency, said in a news release. “It’s incredible how even in these extraordinary circumstances, we had no difficulty gathering artists’ submissions from around the globe — everyone we contacted was keen to support the cause and willing to invest time in putting this all together.”",
+        "image": "https://postmediavancouversun2.files.wordpress.com/2020/04/255464443-0425_it_list_unicef-w.jpg?quality=100&strip=all&w=564",
+        "companyName": "Pacific Institute for the Mathematical Sciences",
+        "companyUrl": "https://bccovid-19group.ca/",
+        "finance": {
+            "donatedSoFar": 90000,
+            "donationGoals": 2000000
+        },
+        "tags": ["Vancouver", "British Columbia", "CA"]
+    }
+]
