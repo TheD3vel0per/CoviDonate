@@ -1,9 +1,10 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component, Redirect } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./styles/Login.css";
 import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from 'react-promise-tracker';
 import Loader from 'react-loader-spinner';
+import { useHistory } from 'react-router'
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -32,14 +33,24 @@ function LoginPage() {
           localStorage.setItem('name', tokenData['name']);
           localStorage.setItem('email', tokenData['email']);
         } else {
-          alert('Login failed!');
+          alert('Login failed!')
+          
         }
       })
       .catch((error) => {
         alert('Login failed!');
       });
-
   };
+
+  const handleSubmitDummy = (event) => {
+    console.log('DEBUG: Using dummy tokens...')
+          
+    localStorage.setItem('_id', "DUMMY_ID")
+    localStorage.setItem('name', "John Doe")
+    localStorage.setItem('email', "john@doe.not")
+  
+
+  }
 
   const LoadingIndicator = props => {
     const { promiseInProgress } = usePromiseTracker();
@@ -65,7 +76,7 @@ function LoginPage() {
 
   return (
     <div className="Login">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitDummy}>
         <FormGroup controlId="email" bsSize="large">
           <label>Email</label>
           <FormControl

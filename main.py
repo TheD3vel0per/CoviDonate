@@ -6,7 +6,8 @@ from hashlib import sha512
 from base64 import b64encode
 
 app = Flask(__name__, static_url_path='/build')
-client = pymongo.MongoClient(open('./server/DBCONNECT.txt').read())
+#client = pymongo.MongoClient(open('./server/DBCONNECT.txt').read())
+client = pymongo.MongoClient()
 
 db = client['development']
 private_key = open('./server/key.pem').read()

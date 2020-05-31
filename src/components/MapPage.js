@@ -1,42 +1,28 @@
-import React from "react";
-import axios from 'axios'
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-function MapPage(props) {
 
-  const [country, countrySet] = React.useState('');
-  const [province, provinceSet] = React.useState('');
+function MapPage() {
 
-  // const getGeoInfo = () => {
-  //   axios.get('https://ipapi.co/json/').then((response) => {
-  //     let data = response.data;
-  //     stateSet({
-  //       countryName: data.country_name,
-  //       countryCode: data.country_calling_code
-  //     });
-  //   }).catch((error) => {
-  //     console.log(error);
-  //   });
-  // };
+  const [coords, coordsSet] = React.useState({
+    longitude: 0,
+    latitude: 0,
+  });
 
-  //countryName: data.country_name,
-  //countryCode: data.country_calling_code
-
-  const getGeoInfo = () => {
-
-    fetch('https://ipapi.co/json')
-      .then((result) => {
-        console.log('endpoint data received')
-        return result.json();
-      }).then((data) => {
-        countrySet(data['country']);
-        provinceSet(data['region']);
-      }).catch(console.log);
+  const load = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      coordsSet(position.coords);
+      
+    });
   };
 
   return (
-    <div onLoad={getGeoInfo()}>
-      <p>Country: {country}</p>
-      <p>Province: {province}</p>
+    <div onLoad={load()}>
+      <h4>Using geolocation JavaScript API in React</h4>
+      <p>Longitude: {coords.longitude}</p>
+      <p>Latitude: {coords.latitude} </p>
     </div>
   );
 }

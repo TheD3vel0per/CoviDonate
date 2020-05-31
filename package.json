@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "cities": "^2.0.0",
+    "geoip-lite": "^1.4.2",
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.6.0",
     "react": "^16.13.1",

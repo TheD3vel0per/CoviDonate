@@ -4,7 +4,9 @@ import {
     BrowserRouter,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory,
+    Redirect
 } from 'react-router-dom';
 
 // import components
@@ -14,6 +16,7 @@ import LoginPage    from './components/LoginPage';
 import AboutUsPage  from './components/AboutUsPage';
 import DonatePage   from './components/DonatePage';
 import MapPage      from './components/MapPage';
+import CityPage from './components/CityPage';
 
 // import bootstrap elements
 import {
@@ -26,10 +29,6 @@ import './navbar.css'
 import './components/styles/App.css';
 
 function App() {
-
-    // TODO Removeme
-    // localStorage.setItem('name', "TEST_NAME");
-
     const logout = () => {
         localStorage.removeItem('_id');
         localStorage.removeItem('name');
@@ -41,9 +40,9 @@ function App() {
     const Greeting = (props) => {
         const name = localStorage.getItem('name');
         return !!name && (
-            <NavItem>
-                <span class='navgreet'>Welcome, {name}! </span>
-            </NavItem>
+            <Navbar.Text style={{color: "#ffffff", marginRight: "1em"}}>
+                Hello, {name}! 
+            </Navbar.Text>
         );
     }
 
@@ -56,11 +55,16 @@ function App() {
         
         if (name)
             return (
-                <Button class='navlogbtn' type="submit" onClick={logout}>
+                <Button variant='outline-danger' type="submit" onClick={logout}>
                     Logout
                 </Button>);
         else
-            return (<Button class='navlogbtn' to="/login">Login</Button>);
+            return (
+                <Link to="/login">
+                    <Button variant='outline-success'>
+                        Login
+                    </Button>
+                </Link>);
     };
 
     return (
@@ -75,16 +79,6 @@ function App() {
 
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav>
-                                <Form>
-                                    <Button type='submit' onClick={() => localStorage.setItem('name', 'TEST_NAME')}>
-                                        POPULATE_NAME
-                                    </Button>
-                                </Form>
-                                <Form>
-                                    <Button type='submit' onClick={() => localStorage.removeItem('name')}>
-                                        UNPOPULATE_NAME
-                                    </Button>
-                                </Form>
                                 <Link to="/map">
                                     Map
                                 </Link>
@@ -98,7 +92,6 @@ function App() {
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
-
                 </div>
 
                 <Switch>
@@ -113,6 +106,9 @@ function App() {
                     </Route>
                     <Route path="/map">
                         <MapPage />
+                    </Route>
+                    <Route path="/city">
+                        <CityPage />
                     </Route>
                     <Route path="/login">
                         <LoginPage />
