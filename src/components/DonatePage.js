@@ -46,12 +46,14 @@ class DonatePage extends React.Component {
     
     render() {
         if (localStorage.getItem('donation-posted'))
-        {}
+        {
+            localStorage.removeItem('donation-posted');
             return <Redirect to="/"/>
+        }
         else
             return (
                 <>
-                <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit}>
+                <Form noValidate validated={localStorage.getItem('donation-posted')} onSubmit={this.handleSubmit}>
                     <Container>
                             <Form.Row>
                                 <Col style={{

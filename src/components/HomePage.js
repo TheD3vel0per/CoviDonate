@@ -21,11 +21,12 @@ class HomePage extends React.Component {
         fetch('/api/projects')
             .then(async (result) => {
                 const data = await result.json();
+                console.log(data);
                 this.setState({
                     projects: data
                 });
             })
-            .catch(error => {});
+            .catch(console.log);
     };
 
     handleButtonClick() {
