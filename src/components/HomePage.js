@@ -13,7 +13,8 @@ import sampleData from "../res/projects.json";
 class HomePage extends React.Component {
     
     state = {
-        projects: sampleData
+        projects:                 if (process.env.NODE_ENV === "development")
+        sampleData
     };
 
     load = () => {
@@ -28,7 +29,8 @@ class HomePage extends React.Component {
             })
             .catch((err) => {
                 console.log(err);
-                this.setState({projects: sampleData});
+                if (process.env.NODE_ENV === "development")
+                    this.setState({projects: sampleData});
             });
     };
 
