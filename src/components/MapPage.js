@@ -12,8 +12,7 @@ function MapPage() {
     longitude: 0,
     latitude: 0,
   });
-
-  const [item, itemSet] = React.useState({
+  const [location, locationSet] = React.useState({
     country: "",
     postal_code: "",
     locality: "",
@@ -26,6 +25,12 @@ function MapPage() {
       console.log("Longitude is :", position.coords.longitude);
       coordsSet(position.coords);
 
+      const loc = {
+        country: "",
+        postal_code: "",
+        locality: "",
+        sublocality: ""
+      };
       // Get address from latitude & longitude.
       Geocode.fromLatLng(`${coords.latitude}`, `${coords.longitude}`, API_KEY)
         .then(response => {
@@ -34,18 +39,18 @@ function MapPage() {
 
           for (let i = 0; i < response.results[0].address_components.length; ++i) {
             for (let j = 0; j < response.results[0].address_components[i].types.length; ++j) {
-              if (!country && response.results[0].address_components[i].types[j] == "country")
-                position.item.country = response.results[0].address_components[i].long_name;
-              else if (!postal_code && response.results[0].address_components[i].types[j] == "postal_code")
-                position.item.postal_code = response.results[0].address_components[i].long_name;
-              else if (!locality && response.results[0].address_components[i].types[j] == "locality")
-                position.item.locality = response.results[0].address_components[i].long_name;
-              else if (!sublocality && response.results[0].address_components[i].types[j] == "sublocality")
-                position.item.sublocality = response.results[0].address_components[i].long_name;
+              if (response.results[0].address_components[i].types[j] == "country")
+                loc.country = response.results[0].address_components[i].long_name;
+              else if (response.results[0].address_components[i].types[j] == "postal_code")
+                loc.postal_code = response.results[0].address_components[i].long_name;
+              else if (response.results[0].address_components[i].types[j] == "locality")
+                loc.locality = response.results[0].address_components[i].long_name;
+              else if (response.results[0].address_components[i].types[j] == "sublocality")
+                loc.sublocality = response.results[0].address_components[i].long_name;
             }
           }
 
-          itemSet(position.item);
+          locationSet(loc);
 
         }).catch(error => {
           console.error(error);
@@ -67,7 +72,8 @@ function MapPage() {
       <h4>Using geolocation JavaScript API in React</h4>
       <p>Longitude: {coords.longitude}</p>
       <p>Latitude:  {coords.latitude} </p>
-      <p>Locality: {item.locality} </p>
+      <p>Country: {location.country} </p>
+      <p>loaclity: {location.locality} </p>
     </div>
   );
 }

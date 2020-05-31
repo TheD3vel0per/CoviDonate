@@ -36,7 +36,134 @@ function Project() {
         "tags": ["keywords"]
     });
 
-    const [recommended, recommendedSet] = React.useState([]);
+    const [recommended, recommendedSet] = React.useState([
+        {
+            "_id": "5ed177e4859e1259c9ebdb04",
+            "title": "A",
+            "shortDescription": "A_Short_Description",
+            "longDescription": "A_long_Description",
+            "image": "",
+            "companyName": "A_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 5,
+                "donationGoals": 5000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "2",
+            "title": "B",
+            "shortDescription": "B_Short_Description",
+            "longDescription": "B_Long_Descripton",
+            "image": "",
+            "companyName": "",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 100,
+                "donationGoals": 1000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "3",
+            "title": "C",
+            "shortDescription": "C_Short_Description",
+            "longDescription": "C_long_Description",
+            "image": "",
+            "companyName": "C_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 1,
+                "donationGoals": 10
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "4",
+            "title": "D",
+            "shortDescription": "D_Short_Description",
+            "longDescription": "D_long_Description",
+            "image": "",
+            "companyName": "D_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 108,
+                "donationGoals": 1000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "5",
+            "title": "E",
+            "shortDescription": "E_Short_Description",
+            "longDescription": "E_long_Description",
+            "image": "",
+            "companyName": "E_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 2000,
+                "donationGoals": 50000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "6",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 600,
+                "donationGoals": 9000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "7",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 300,
+                "donationGoals": 3000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "8",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 405,
+                "donationGoals": 6000
+            },
+            "tags": ["keywords"]
+        },
+        {
+            "id": "9",
+            "title": "F",
+            "shortDescription": "F_Short_Description",
+            "longDescription": "F_long_Description",
+            "image": "",
+            "companyName": "F_Company_Name",
+            "companyUrl": "",
+            "finance": {
+                "donatedSoFar": 700,
+                "donationGoals": 7000
+            },
+            "tags": ["keywords"]
+        }
+    ]);
 
     // percent to fill the donation progress bar 
     var percent = 100 * project['finance']['donatedSoFar'] / project['finance']['donationGoals'];
@@ -123,8 +250,6 @@ function Project() {
                                 <ProgressBar animated striped variant="success" now={percent} key={1} />
 
                             </ProgressBar>
-                            {/*<Button href="#" className="m-1" size="lg" variant="outline-success" style = {{marginBottom: 50}}>Donate</Button>
-                        */}
                             <Link to="/donate" variant="outline-success" className="button m-1" >Donate</Link>
                         </div>
 
@@ -135,9 +260,9 @@ function Project() {
                         </Card.Text>
 
                         <p ></p>
-                        <Button href={project.companyUrl} className="m-3" variant="outline-dark"> Company Website </Button>
+                        <Button href={project.companyUrl} target="_blank" className="m-3" variant="outline-dark"> Company Website </Button>
                         {/* NOTE TO NOAH, UNCOMMENT AND TEST THE CODE BELOW*/}
-                        {/*  <FacebookIcon url={window.location.href} size={32}/> */}
+                        <FacebookIcon url={window.location.href} size={32} />
                         <TwitterIcon size={32} />
 
                         <div></div>
@@ -148,11 +273,23 @@ function Project() {
 
                 <Container>
 
-                    <h4 style={{
-                        marginTop: 30
-                    }}>Similar projects</h4>
-
                     <Carousel activeIndex={index} onSelect={handleSelect}>
+                        {recommended.map(pj => (
+                            <Carousel.Item>
+                                <img
+                                    className="d-block w-100"
+                                    src="/images/people-in-water.jpg"
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>{pj.title}</h3>
+                                    <p>{pj.shortDescription}</p>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
+
+                    {/* <Carousel activeIndex={index} onSelect={handleSelect}>
                         {recommended.map(pj => (
                             <Carousel.Item>
                                 <img
@@ -166,7 +303,7 @@ function Project() {
                                 </Carousel.Caption>
                             </Carousel.Item>
                         ))}
-                    </Carousel>
+                    </Carousel> */}
 
                 </Container>
 
