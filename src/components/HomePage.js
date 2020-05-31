@@ -64,10 +64,14 @@ class HomePage extends React.Component {
         console.log(projects);  // Validate that the projects variable is sorting
     }
 
+    componentDidMount() {
+        this.load();
+    }
+
     render() {
         return (
             <>
-                <div onLoad={this.load()}>
+                <div>
                     <Container fluid={true} >
                         <div>
                             <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={this.sort_cards}>

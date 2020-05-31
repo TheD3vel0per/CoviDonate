@@ -16,6 +16,7 @@ import AboutUsPage  from './components/AboutUsPage';
 import DonatePage   from './components/DonatePage';
 import MapPage      from './components/MapPage';
 import CityPage from './components/CityPage';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 // import bootstrap elements
 import {
@@ -92,6 +93,11 @@ function App() {
                                         About Us
                                     </Button>
                                 </Link>
+                                <Link to="/privacy-policy">
+                                    <Button variant='outline-light'>
+                                        Privacy Policy
+                                    </Button>
+                                </Link>
                             </Nav>
 
                             <Nav className='ml-auto'>
@@ -106,6 +112,7 @@ function App() {
 
                 <Switch>
                     <Route path="/project/:id" component={ProjectPage}></Route>
+                    <Route path="/privacy-policy" component={PrivacyPolicy}></Route>
                     <Route path="/about-us" component={AboutUsPage}></Route>
                     <Route path="/donate" component={DonatePage}></Route>
                     <Route path="/map" component={MapPage}></Route>
