@@ -43,7 +43,7 @@ class MapPage extends React.Component {
     }).then(async (result) => {
       const data = await result.json();
       this.setState({
-        recommended: data
+        projects: data
       });
     }).catch(console.log);
   }
