@@ -10,6 +10,8 @@ import {
 
 function HomePage() {
 
+
+
     const sampleData = [
         {
             "_id": "5ed177e4859e1259c9ebdb04",
@@ -157,6 +159,7 @@ function HomePage() {
         switch (algorithm)
         {
             case "prog-rel":
+                setProjects(projects.sort((project)=>))
                 break;
             case "prog-abs":
                 break;
