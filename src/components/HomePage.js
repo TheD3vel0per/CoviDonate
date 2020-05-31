@@ -67,7 +67,7 @@ class HomePage extends React.Component {
     render() {
         return (
             <>
-                <div onLoad={this.load}>
+                <div onLoad={this.load()}>
                     <Container fluid={true} >
                         <div>
                             <select id="sort_alg_selecter" style={{marginRight: "2em"}} onChange={this.sort_cards}>

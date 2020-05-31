@@ -58,8 +58,7 @@ class ProjectPage extends React.Component {
                 this.loadRecommended(data['tags']);
             })
             .catch((err)=>{
-                if (process.env.NODE_ENV === "development")
-                    this.setState({project: sampleProjects.find((e) => e._id === id)});
+                this.setState({project: sampleProjects.find((e) => e._id === id)});
             });
     };
 
