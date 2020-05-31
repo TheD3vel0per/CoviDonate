@@ -86,7 +86,7 @@ class HomePage extends React.Component {
                                 return (
                                     <div className="col-sm-6 col-md-4 col-lg-3 col-xl-2 pb-2">
                                         <Card className="border-info">
-                                            <Card.Img variant="top" src={obj.imag} alt="Generic placeholder in case pic fails to load" />
+                                            <Card.Img variant="top" src={obj.image} alt="Generic placeholder in case pic fails to load" />
                                             <Card.Body>
                                                 <Card.Title>{obj.title}</Card.Title>
                                                 <Card.Text>
