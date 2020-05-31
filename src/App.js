@@ -82,11 +82,11 @@ function App() {
 
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav style={{marginLeft: "2em"}}>
-                                {/* <Link to="/map" style={{marginRight: "1em"}}>
+                                <Link to="/map" style={{marginRight: "1em"}}>
                                     <Button variant='outline-light'>
                                         Map
                                     </Button>
-                                </Link> */}
+                                </Link>
                                 <Link to="/about-us">
                                     <Button variant='outline-light'>
                                         About Us
