@@ -1,0 +1,35 @@
+from flask import Flask
+from pymongo import MongoClient
+from os import environ
+
+app = Flask(__name__, static_url_path='/build')
+#client = MongoClient(environ['MONGODB_URI'])
+client = MongoClient('mongodb+srv://root:LkCuyzfKWeYWoEdi@rookiehacks2020-hmb4b.azure.mongodb.net/test?retryWrites=true&w=majority')
+db = client['development']
+private_key = """-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQB/6nDiKCwa3dnhtx0EpnmW2GN9YThi922NzAXPLjkoxgXwfQ/p
+eZnwedfpkSt+K7EHNhFUvQkpAMoIK8Tm2/z2r1piodmGMAU93zyjQR/coW0sDMu1
+3m8NS/2GGUImh3hMakotnAihhCs24/DbS7zeyt9kwldtiMpZszPq++lye8drIfTA
+COegQRT9gPUermcvXq/B+3isfRMD5BwKRPY9nWUFvzpU3Y157lsZr7FK2o4zOxge
+UM+B7Ngtgfo2vfrrYPMFb4xPiBVfn7Pv6nM6TWew5SqvOZBIIYtiaouEnG43xPwc
+9RGFjpgCf8NDLdPkbSsOR08nzOhzfg4g+xbXAgMBAAECggEAXNL+E7/fMafoYrmE
+30kHVwW0PNn+FyNCZvG1DYGXjRUWXkwC7gSGR1HD8wSbsTV3g6oirYF4Uj72XTOV
+8YmWalUZnBWjSpMyWpHS6Q1rV6n1FVA7y8CcieOpGFTgAiGwlJNVPP/L65mD2pNS
+x3CQoIRL1EyLMTtgy/MVK+Kep6pQYdmwaszqXdOhelI/eXTVHrlp3PnqnvPCUOAy
+/XNsLBpLTLINVpAzu4VVeinFFXehjIhPWWS3Bu62pRyfKqy8bNz70xNrkfjIw/2E
+U2Zdb5T01TtKugHR6y/QYeU7luavfQcr7w1NgHxCFRx2qjyjsgkM638w+9fEeL+A
+9KwBIQKBgQC7bUReP5WiWebavOnH+h7Mx1HiDzuBjp9+MICTeGgeJks+NsjtMFqv
+C4qVofJxhdkfxRKbr4bwZKyazK7UVIas+2Q2C/U0GMfLkbZ72AnEl9O85V0rtzdY
+cvC6SmcgyBM+uLqi5nBxRGyJE1p3xI2uowL1G+gOhG52JMPqdjBOvwKBgQCut0NY
+RdWGF3ppB6xXzyz8PNgPBeU01RNvkpjxfsMNIEEGw5uRJZnc765nwQ70b0CLuSHH
+lGSmMoaK752WLLzIoG5g1ykc9lDeedQdzxue1KyQzi3PoqTIN+HaGHezfbSGzDTF
+dj61u7w7ecYjHn2etjABcyQoCyLudLsDUKJV6QKBgQCqMvJnx8PhF1SdA/ojwA1i
+FgpUh1KZNuO82tyXjjq2Tj37tBJH2aYv2QIzGUopLsvZnsNkH0QhXrqjJAYLCOr3
+gJ4iuj8j3PDp+ltFIQzVuq3rljlCbnFS36Wc9d2qliVryqKpNSucn+8Tl0CLDDFB
+CgSwgnP7YuVQYdiLPGJnzwKBgAkgygPyohU/ZMXYAMkVqeQDycX/KNp5x2os3pC/
+brFg3gTcc2RB8qf4XcRN8doTdevW4EztE9UbDqxzmGggLjzNJPcqRpucwtzcwJhO
+GcNSmTF3lC0k8jcDtGkQnjBigOwJ/zfR1bTo+gyhcBilnyqLmjZ5LYpqCokq0Bp8
+O/8BAoGAa83iBmZXMgjeA8kcE1BuR9luPwg8Uc9MAzEWGBDREXoigsSMiHLdz66J
+KayXxFdKaIvxN50rnOaLm3+PVO1cRj6LkdFIrJLOrMJUGQ1dP1bwNpH0cN6AYYPw
+aKySoPYY8b0xToGsshhdCLmcNDq6lQGEpMAOJPAvwocVcDj+5Oc=
+-----END RSA PRIVATE KEY-----"""
